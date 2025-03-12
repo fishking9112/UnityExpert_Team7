@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Ä«¸Ş¶ó Áß½É¿¡¼­ ÂïÈ÷´Â ¹°Ã¼¸¦ ÆÇ´ÜÇÏ±â À§ÇÑ ½ºÅ©¸³Æ®.
+/// ì¹´ë©”ë¼ ì¤‘ì‹¬ì—ì„œ ì°íˆëŠ” ë¬¼ì²´ë¥¼ íŒë‹¨í•˜ê¸° ìœ„í•œ ìŠ¤í¬ë¦½íŠ¸.
 /// </summary>
 
 public class Interaction : MonoBehaviour
 {
-    public float checkRate = 0.05f; // °Ë»ç ÁÖ±â
-    private float _lastCheckTime;   // ¸¶Áö¸· Ã¼Å©ÇÑ ½Ã°£
-    public float maxCheckDist;      // ·¹ÀÌ °Å¸®
+    public float checkRate = 0.05f; // ê²€ì‚¬ ì£¼ê¸°
+    private float _lastCheckTime;   // ë§ˆì§€ë§‰ ì²´í¬í•œ ì‹œê°„
+    public float maxCheckDist;      // ê²€ì‚¬í•  ë ˆì´ì˜ ê±°ë¦¬ 
 
-    public LayerMask layerMask;     // °Ë»çÇÒ ·¹ÀÌ¾î ¸¶½ºÅ©
+    public LayerMask layerMask;     // ê²€ì‚¬í•  ë ˆì´ì–´ ë§ˆìŠ¤í¬
 
-    public GameObject curInteractionOBJ;    // ÇöÀç ÂïÀº OBJ
+    public GameObject curInteractionOBJ;    // í˜„ì¬ ì°ì€ OBJ
 
-    private Camera _camera;                 // Ä«¸Ş¶ó Áß½ÉÀ» À§ÇÑ Ä«¸Ş¶ó
+    private Camera _camera;                 // ì¹´ë©”ë¼ ì¤‘ì‹¬ì„ ìœ„í•œ ì¹´ë©”ë¼
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class Interaction : MonoBehaviour
 
     void Update()
     {
-        //ÀÏÁ¤ ½Ã°£¸¶´Ù Ray ½î±â
+        //ì¼ì • ì‹œê°„ë§ˆë‹¤ Ray ì˜ê¸°
         if (Time.time - _lastCheckTime > checkRate)
         {
             _lastCheckTime = Time.time;
@@ -33,22 +33,22 @@ public class Interaction : MonoBehaviour
             Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
 
-            //Ä«¸Ş¶ó ÁßÁ¡¿¡¼­ ·¹ÀÌ ¹ß»ç ÇØ¼­ Ãæµ¹ ÇßÀ¸¸é ?
+            //ì¹´ë©”ë¼ ì¤‘ì ì—ì„œ ë ˆì´ ë°œì‚¬ í•´ì„œ ì¶©ëŒ í–ˆìœ¼ë©´ ?
             if (Physics.Raycast(ray, out hit, maxCheckDist, layerMask))
             {
                 if (hit.collider.gameObject != curInteractionOBJ)
                 {
-                    // Á¤º¸ °¡Á®¿À±â
+                    // ì •ë³´ ê°€ì ¸ì˜¤ê¸°
                     curInteractionOBJ = hit.collider.gameObject;
                     //curInteractable = hit.collider.GetComponent<IInteractable>();
 
-                    //¿©±â¼­ º¸¼º´ÔÀÌ ÀÛ¾÷ÇØÁÖ½Ã¸é µË´Ï´Ù.
+                    //ì—¬ê¸°ì„œ ë³´ì„±ë‹˜ì´ ì‘ì—…í•´ì£¼ì‹œë©´ ë©ë‹ˆë‹¤.
                 }
             }
-            //¾Æ´Ï¸é
+            //ì•„ë‹ˆë©´
             else
             {
-                // µ¥ÀÌÅÍ ÃÊ±âÈ­
+                // ë°ì´í„° ì´ˆê¸°í™”
                 curInteractionOBJ = null;
                 //curInteractable = null;
             }
