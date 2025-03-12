@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1212647549215497389}
   - component: {fileID: 3581630156923959916}
   - component: {fileID: 8441481252811430340}
+  - component: {fileID: 6014277431225518567}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -161,6 +162,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 12c6aaef-d202-46c4-a3d3-f016991f22e6
     m_ActionName: Palyer/Look
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f85a9d6-5f42-4327-a8af-7375b852206d
+    m_ActionName: Palyer/Interaction[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Palyer
@@ -203,6 +208,25 @@ MonoBehaviour:
   _isLookable: 0
   _isJump: 0
   _isGround: 0
+--- !u!114 &6014277431225518567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123457506396776955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dd5ea310c89dd46b4740c1a1f1679d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkRate: 0.05
+  maxCheckDist: 3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  curInteractionOBJ: {fileID: 0}
+  promptText: {fileID: 0}
 --- !u!1 &2884854703313507170
 GameObject:
   m_ObjectHideFlags: 0
