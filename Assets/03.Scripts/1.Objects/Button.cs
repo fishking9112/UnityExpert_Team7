@@ -10,16 +10,16 @@ public class Button : MonoBehaviour, IPressable
 
     public UnityEvent onPress;
     public UnityEvent onRelease;
-    public void Interact(PlayerController player)
+    public void Interact(Interaction player)
     {
         Press(player);
     }
 
 
-    public void Press(PlayerController player)
+    public void Press(Interaction player)
     {
         // press된 상태인지 구분 
-        isPressed = !isPressed;
+        isPressed = !isPressed; //<< 잠시 대기 사용할지 안할지 모르겟음 
         if (isPressed) // 눌렸다면
         {
             onPress.Invoke();
@@ -30,7 +30,7 @@ public class Button : MonoBehaviour, IPressable
         }
     }
 
-    public bool CanInteract(PlayerController player)
+    public bool CanInteract(Interaction player)
     {
         // 버튼이 눌려져있지 않을때 상호작용 가능 
         return !isPressed;
