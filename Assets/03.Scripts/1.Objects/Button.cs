@@ -8,8 +8,13 @@ public class Button : MonoBehaviour, IPressable
     private bool isPressed = false;
     public bool IsPressed => isPressed;
 
-    [SerializeField]private UnityEvent onPress;
-    [SerializeField]private UnityEvent onRelease;
+    public UnityEvent onPress;
+    public UnityEvent onRelease;
+    public void Interact()
+    {
+        Press();
+    }
+
 
     public void Press()
     {
@@ -26,6 +31,7 @@ public class Button : MonoBehaviour, IPressable
 
     public bool CanInteract()
     {
+        
         // 버튼을 누를 수 있는 조건 확인
         throw new System.NotImplementedException();
     }
@@ -35,10 +41,6 @@ public class Button : MonoBehaviour, IPressable
         throw new System.NotImplementedException();
     }
 
-    public void Interact()
-    {
-        Press();
-    }
 
 
 }

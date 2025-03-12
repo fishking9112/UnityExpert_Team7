@@ -6,8 +6,8 @@ public interface IInteractable
 {
     //bool CanInteract(PlayerController player);
     //void Interact(PlayerController player);
-    void Interact();
-    bool CanInteract();
+    void Interact(); //상호작용하기 
+    bool CanInteract(); //
     string GetInteractionPrompt();
 }
 
