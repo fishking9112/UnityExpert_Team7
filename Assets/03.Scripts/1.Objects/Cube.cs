@@ -12,12 +12,16 @@ public class Cube : MonoBehaviour,IPickable
     public void PickUp()
     {
         isPickedUp= true;
-        throw new System.NotImplementedException();
+
+        // 들기 
+
     }
     public void Drop()
     {
         isPickedUp= false;
-        throw new System.NotImplementedException();
+
+        //놓기
+
     }
 
     public string GetInteractionPrompt()
