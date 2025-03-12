@@ -10,35 +10,35 @@ public class Button : MonoBehaviour, IPressable
 
     public UnityEvent onPress;
     public UnityEvent onRelease;
-    public void Interact()
+    public void Interact(PlayerController player)
     {
-        Press();
+        Press(player);
     }
 
 
-    public void Press()
+    public void Press(PlayerController player)
     {
+        // press된 상태인지 구분 
         isPressed = !isPressed;
-        if (isPressed)
+        if (isPressed) // 눌렸다면
         {
             onPress.Invoke();
         }
-        else
+        else //안눌렸다면 
         {
             onRelease.Invoke();
         }
     }
 
-    public bool CanInteract()
+    public bool CanInteract(PlayerController player)
     {
-        
-        // 버튼을 누를 수 있는 조건 확인
-        throw new System.NotImplementedException();
+        // 버튼이 눌려져있지 않을때 상호작용 가능 
+        return !isPressed;
     }
 
     public string GetInteractionPrompt()
     {
-        throw new System.NotImplementedException();
+        return "누르기";
     }
 
 
