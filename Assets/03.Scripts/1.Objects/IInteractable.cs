@@ -4,25 +4,23 @@ using UnityEngine;
 
 public interface IInteractable 
 {
-    //bool CanInteract(PlayerController player);
-    //void Interact(PlayerController player);
-    void Interact(); //상호작용하기 
-    bool CanInteract(); //
+    
+    void Interact(Interaction player); //상호작용하기 
+    bool CanInteract(Interaction player); //
     string GetInteractionPrompt();
 }
 
 public interface IPickable : IInteractable
 {
-    //void PickUp(PlayerController player);
-    //void Drop(PlayerController player);
-    void PickUp();
-    void Drop();
+    
+    void PickUp(Interaction player);
+    void Drop(Interaction player);
     bool IsPickedUp { get; }
 }
 
 public interface IPressable : IInteractable
 {
     //void Press(PlayerController player);
-    void Press();
+    void Press(Interaction player);
     bool IsPressed { get; }
 }

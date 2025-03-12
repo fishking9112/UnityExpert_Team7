@@ -8,15 +8,21 @@ public class Cube : MonoBehaviour,IPickable
 
     public bool IsPickedUp => isPickedUp;
 
-
-    public void PickUp()
+    public void Interact(Interaction player)
+    {
+        if (!isPickedUp)
+            PickUp(player);
+        else
+            Drop(player);
+    }
+    public void PickUp(Interaction player)
     {
         isPickedUp= true;
 
         // 들기 
 
     }
-    public void Drop()
+    public void Drop(Interaction player)
     {
         isPickedUp= false;
 
@@ -29,15 +35,9 @@ public class Cube : MonoBehaviour,IPickable
         throw new System.NotImplementedException();
     }
 
-    public void Interact()
-    {
-        if (!isPickedUp)
-            PickUp();
-        else
-            Drop();
-    }
 
-    public bool CanInteract()
+
+    public bool CanInteract(Interaction player)
     {
         // 플레이어가 이미 다른 물체를 들고 있는지 등의 조건 확인
         throw new System.NotImplementedException();

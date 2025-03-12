@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ì¹´ë©”ë¼ ì¤‘ì‹¬ì—ì„œ ì°íˆëŠ” ë¬¼ì²´ë¥¼ íŒë‹¨í•˜ê¸° ìœ„í•œ ìŠ¤í¬ë¦½íŠ¸.
+/// Ä«¸Ş¶ó Áß½É¿¡¼­ ÂïÈ÷´Â ¹°Ã¼¸¦ ÆÇ´ÜÇÏ±â À§ÇÑ ½ºÅ©¸³Æ®.
 /// </summary>
 
 public class Interaction : MonoBehaviour
 {
-    public float checkRate = 0.05f; // ê²€ì‚¬ ì£¼ê¸°
-    private float _lastCheckTime;   // ë§ˆì§€ë§‰ ì²´í¬í•œ ì‹œê°„
-    public float maxCheckDist;      // ê²€ì‚¬í•  ë ˆì´ì˜ ê±°ë¦¬ 
+    [SerializeField] private Transform holdTransform; // ¹°Ã¼¸¦ µé°í ÀÖÀ» À§Ä¡
+    private IPickable heldObject = null;
 
-    public LayerMask layerMask;     // ê²€ì‚¬í•  ë ˆì´ì–´ ë§ˆìŠ¤í¬
+    public float checkRate = 0.05f; // °Ë»ç ÁÖ±â
+    private float _lastCheckTime;   // ¸¶Áö¸· Ã¼Å©ÇÑ ½Ã°£
+    public float maxCheckDist;      // ·¹ÀÌ °Å¸®
 
-    public GameObject curInteractionOBJ;    // í˜„ì¬ ì°ì€ OBJ
+    public LayerMask layerMask;     // °Ë»çÇÒ ·¹ÀÌ¾î ¸¶½ºÅ©
 
-    private Camera _camera;                 // ì¹´ë©”ë¼ ì¤‘ì‹¬ì„ ìœ„í•œ ì¹´ë©”ë¼
+    //    public GameObject curInteractionOBJ;    // ÇöÀç ÂïÀº OBJ
+
+    private Camera _camera;                 // Ä«¸Ş¶ó Áß½ÉÀ» À§ÇÑ Ä«¸Ş¶ó
 
     void Start()
     {
@@ -25,33 +28,38 @@ public class Interaction : MonoBehaviour
 
     void Update()
     {
-        //ì¼ì • ì‹œê°„ë§ˆë‹¤ Ray ì˜ê¸°
-        if (Time.time - _lastCheckTime > checkRate)
-        {
-            _lastCheckTime = Time.time;
+        //OntryInteract();
+    }
 
-            Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+    public void OntryInteract()
+    {
+        //ÀÏÁ¤ ½Ã°£¸¶´Ù Ray ½î±â
+        //if (Time.time - _lastCheckTime > checkRate)
+        {
+          //  _lastCheckTime = Time.time;
+
+           Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
 
-            //ì¹´ë©”ë¼ ì¤‘ì ì—ì„œ ë ˆì´ ë°œì‚¬ í•´ì„œ ì¶©ëŒ í–ˆìœ¼ë©´ ?
-            if (Physics.Raycast(ray, out hit, maxCheckDist, layerMask))
+            //Ä«¸Ş¶ó ÁßÁ¡¿¡¼­ ·¹ÀÌ ¹ß»ç ÇØ¼­ Ãæµ¹ ÇßÀ¸¸é ?
+            if (Physics.Raycast(ray, out hit, maxCheckDist))
             {
-                if (hit.collider.gameObject != curInteractionOBJ)
+                // ray¸¦ ½÷¼­ interable °¡Á®¿À±â
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+                
+                //interable ÀÇ Á¸ÀçÇÏ°í && »óÈ£ÀÛ¿ëÀÌ °¡´ÉÇÑ »óÅÂ¶ó¸é
+                if(interactable !=null && interactable.CanInteract(this))
                 {
-                    // ì •ë³´ ê°€ì ¸ì˜¤ê¸°
-                    curInteractionOBJ = hit.collider.gameObject;
-                    //curInteractable = hit.collider.GetComponent<IInteractable>();
-
-                    //ì—¬ê¸°ì„œ ë³´ì„±ë‹˜ì´ ì‘ì—…í•´ì£¼ì‹œë©´ ë©ë‹ˆë‹¤.
+                    //»óÈ£ÀÛ¿ë ½ÇÇà
+                    interactable.Interact(this);
+                    Debug.Log(interactable.GetInteractionPrompt());
                 }
             }
-            //ì•„ë‹ˆë©´
-            else
-            {
-                // ë°ì´í„° ì´ˆê¸°í™”
-                curInteractionOBJ = null;
-                //curInteractable = null;
-            }
         }
+    }
+
+    public bool CanPickUpObject()
+    {
+        return heldObject == null;
     }
 }
