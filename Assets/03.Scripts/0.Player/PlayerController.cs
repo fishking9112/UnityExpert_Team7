@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(transform.rotation.x !=0 || transform.rotation.z != 0)
+        if (transform.rotation.x != 0 || transform.rotation.z != 0)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), 10f);
         }
