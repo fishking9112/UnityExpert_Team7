@@ -1,35 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Setting : MonoBehaviour
 {
+    /// <summary>
+    /// Setting 버튼을 눌렀을 때 SoundManager UI 활성화
+    /// </summary>
     public GameObject SettingBtn;
-    public Button activateButton;
-    public bool isActive = false;
-
-    void Start()
-    {
-        //if (activateButton != null)
-        //{
-        //    activateButton.onClick.AddListener(ActivateObject);
-        //}
-    }
 
     public void PauseButton()
     {
-        if (!isActive)
-        {
-            isActive = true;
-            SettingBtn.SetActive(isActive);
-        }
-        else
-        {
-            isActive = false;
-            SettingBtn.SetActive(isActive);
-        }
+        SettingBtn.SetActive(true);
     }
 
-    void ActivateObject()
+    public void ResumeButton()
     {
         SettingBtn.SetActive(false);
     }

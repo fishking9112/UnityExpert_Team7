@@ -2,6 +2,9 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// 저장 및 로드할 데이터
+/// </summary>
 [System.Serializable]
 public class SaveData
 {

@@ -3,7 +3,10 @@ using System.IO;
 
 public class SceneCapture : MonoBehaviour
 {
-    public Camera sceneCamera; // 캡처할 카메라
+    /// <summary>
+    /// 이동할 씬의 화면을 캡쳐할 카메라 
+    /// </summary>
+    public Camera sceneCamera;
 
     void Start()
     {
@@ -23,7 +26,6 @@ public class SceneCapture : MonoBehaviour
         screenShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);
         screenShot.Apply();
 
-        // 저장 경로 설정
         byte[] bytes = screenShot.EncodeToPNG();
         string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         string filePath = Application.persistentDataPath + "/" + sceneName + ".png";
@@ -31,7 +33,6 @@ public class SceneCapture : MonoBehaviour
 
         Debug.Log("Screenshot saved at: " + filePath);
 
-        // 메모리 정리
         sceneCamera.targetTexture = null;
         RenderTexture.active = null;
         Destroy(rt);

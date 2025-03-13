@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
+/// <summary>
+/// 다음 씬의 미리보기 이미지를 표시
+/// </summary>
+/// 
 public class SceneDisplay : MonoBehaviour
 {
     public Image previewImage;
