@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 
 public class Interaction : MonoBehaviour
 {
+    [SerializeField] private Transform equipCamera;
     [SerializeField] private Transform holdTransform; // 물체를 들고 있을 위치
     private IPickable heldObject = null;
     private IInteractable interactable;
@@ -72,6 +73,11 @@ public class Interaction : MonoBehaviour
             interactable.Interact(this);
             Debug.Log(interactable.GetInteractionPrompt());
         }
+    }
+    public Transform GetEquipCameraTransform()
+    {
+
+        return equipCamera; 
     }
     public Transform GetHoldTransform()
     {
