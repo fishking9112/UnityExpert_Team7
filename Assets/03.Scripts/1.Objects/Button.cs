@@ -8,8 +8,8 @@ public class Button : MonoBehaviour, IPressable
     private bool isPressed = false;
     public bool IsPressed => isPressed;
 
-    public UnityEvent onPress;
-    public UnityEvent onRelease;
+    [SerializeField]private UnityEvent onPress;
+    [SerializeField] private UnityEvent onRelease;
     public void Interact(Interaction player)
     {
         Press(player);
@@ -18,27 +18,29 @@ public class Button : MonoBehaviour, IPressable
 
     public void Press(Interaction player)
     {
-        // pressµÈ »óÅÂÀÎÁö ±¸ºĞ 
-        isPressed = !isPressed; //<< Àá½Ã ´ë±â »ç¿ëÇÒÁö ¾ÈÇÒÁö ¸ğ¸£°ÙÀ½ 
-        if (isPressed) // ´­·È´Ù¸é
+        // pressëœ ìƒíƒœì¸ì§€ êµ¬ë¶„ 
+        isPressed = !isPressed; //<< ì ì‹œ ëŒ€ê¸° ì‚¬ìš©í• ì§€ ì•ˆí• ì§€ ëª¨ë¥´ê²ŸìŒ 
+        if (isPressed) // ëˆŒë ¸ë‹¤ë©´
         {
             onPress.Invoke();
+            //ì• ë‹ˆë©”ì´ì…˜ ì¶”ê°€í• ê±°ë©´ ì—¬ê¸°ì„œ
         }
-        else //¾È´­·È´Ù¸é 
+        else //ì•ˆëˆŒë ¸ë‹¤ë©´ 
         {
             onRelease.Invoke();
+            //ì• ë‹ˆë©”ì´ì…˜ ì¶”ê°€í• ê±°ë©´ ì—¬ê¸°ì„œ
         }
     }
 
     public bool CanInteract(Interaction player)
     {
-        // ¹öÆ°ÀÌ ´­·ÁÁ®ÀÖÁö ¾ÊÀ»¶§ »óÈ£ÀÛ¿ë °¡´É 
+        // ë²„íŠ¼ì´ ëˆŒë ¤ì ¸ìˆì§€ ì•Šì„ë•Œ ìƒí˜¸ì‘ìš© ê°€ëŠ¥ 
         return !isPressed;
     }
 
     public string GetInteractionPrompt()
     {
-        return "´©¸£±â";
+        return "ëˆ„ë¥´ê¸°";
     }
 
 
