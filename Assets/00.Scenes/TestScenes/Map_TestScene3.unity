@@ -569,7 +569,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720825965}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &2045620342
+--- !u!1001 &4289136602927984693
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -631,6 +631,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 705507995}
+  - {fileID: 4289136602927984693}
   - {fileID: 1307799951}
   - {fileID: 729739939}
-  - {fileID: 2045620342}
