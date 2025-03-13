@@ -7,10 +7,13 @@ public class Portal : MonoBehaviour
     [SerializeField] bool isRedPortal;
     Collider wallCollider;
 
-    
 
-    
-    
+
+
+    public void SetOtherPortal(Portal Potal)
+    {
+        otherPotal = Potal;
+    }
     
     
     public void SummonPortal(Vector3 hitPoint, Vector3 hitNormal, Collider hitCollider)

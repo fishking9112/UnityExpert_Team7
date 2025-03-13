@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
+using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
@@ -133,10 +134,10 @@ public class PlayerController : MonoBehaviour
     {
         Ray[] rays = new Ray[4]
         {
-            new Ray(transform.position + (transform.forward * 0.18f) +(-transform.up*079f),Vector3.down),
-            new Ray(transform.position + (-transform.forward * 0.18f) +(-transform.up*0.79f),Vector3.down),
-            new Ray(transform.position + (transform.right * 0.18f) +(-transform.up*0.79f),Vector3.down),
-            new Ray(transform.position + (-transform.right * 0.18f) +(-transform.up*0.79f),Vector3.down),
+            new Ray(transform.position + (transform.forward * 0.29f) +(-transform.up*079f),Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.29f) +(-transform.up*0.79f),Vector3.down),
+            new Ray(transform.position + (transform.right * 0.29f) +(-transform.up*0.79f),Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.29f) +(-transform.up*0.79f),Vector3.down),
         };
 
         for (int i = 0; i < rays.Length; i++)
@@ -147,5 +148,14 @@ public class PlayerController : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position + (transform.forward * 0.29f) + (-transform.up * 079f), Vector3.down * 0.1f);
+        Gizmos.DrawRay(transform.position + (-transform.forward * 0.29f) + (-transform.up * 0.79f), Vector3.down * 0.1f);
+        Gizmos.DrawRay(transform.position + (transform.right * 0.29f) + (-transform.up * 0.79f), Vector3.down * 0.1f);
+        Gizmos.DrawRay(transform.position + (-transform.right * 0.29f) + (-transform.up * 0.79f), Vector3.down * 0.1f);
     }
 }
