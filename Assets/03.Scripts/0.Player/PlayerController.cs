@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]bool _isLookable;
     [SerializeField]bool _isJump;
     [SerializeField] bool _isGround;
+
+    [SerializeField] float standSpeed;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _isLookable = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     private void Update()
     {
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.rotation.x != 0 || transform.rotation.z != 0)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), 10f);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), standSpeed);
         }
         Move();
         
