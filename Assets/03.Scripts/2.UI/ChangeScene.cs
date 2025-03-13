@@ -24,7 +24,7 @@ public class ChangeScene : MonoBehaviour
         while (time < duration)
         {
             time += Time.deltaTime;
-            float scale = Mathf.Lerp(1f, 20f, time / duration);
+            float scale = Mathf.Lerp(1f, 50f, time / duration);
             rectTransform.localScale = new Vector3(scale, scale, 1f);
             yield return null;
         }
