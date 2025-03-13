@@ -25,7 +25,7 @@ public class Cube : MonoBehaviour,IPickable
         // 부모오브젝트를 변경해주고 초기화 
         transform.SetParent(player.GetHoldTransform());
         transform.localPosition = Vector3.zero;
-        GetComponent<Rigidbody>().isKinematic = true; //중력영향 X /물리적 충돌 X
+        GetComponent<Rigidbody>().isKinematic = true; //중력영향 X /물리적 충돌 X rigidbody 
         // player가지고있는 오브젝트 추가
         player.SetHeldObject(this);
     }
