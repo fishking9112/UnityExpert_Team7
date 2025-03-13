@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    /// <summary>
+    /// 사운드조절매니저
+    /// </summary>
     public static SoundManager instance;
 
     public AudioSource bgmSource;
