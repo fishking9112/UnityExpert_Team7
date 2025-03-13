@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
-/// Ä«¸Ş¶ó Áß½É¿¡¼­ ÂïÈ÷´Â ¹°Ã¼¸¦ ÆÇ´ÜÇÏ±â À§ÇÑ ½ºÅ©¸³Æ®.
+/// ì¹´ë©”ë¼ ì¤‘ì‹¬ì—ì„œ ì°íˆëŠ” ë¬¼ì²´ë¥¼ íŒë‹¨í•˜ê¸° ìœ„í•œ ìŠ¤í¬ë¦½íŠ¸.
 /// </summary>
 
 public class Interaction : MonoBehaviour
 {
-    [SerializeField] private Transform holdTransform; // ¹°Ã¼¸¦ µé°í ÀÖÀ» À§Ä¡
+    [SerializeField] private Transform holdTransform; // ë¬¼ì²´ë¥¼ ë“¤ê³  ìˆì„ ìœ„ì¹˜
     private IPickable heldObject = null;
+    private IInteractable interactable;
 
-    public float checkRate = 0.05f; // °Ë»ç ÁÖ±â
-    private float _lastCheckTime;   // ¸¶Áö¸· Ã¼Å©ÇÑ ½Ã°£
-    public float maxCheckDist;      // ·¹ÀÌ °Å¸®
+    public float checkRate = 0.05f; // ê²€ì‚¬ ì£¼ê¸°
+    private float _lastCheckTime;   // ë§ˆì§€ë§‰ ì²´í¬í•œ ì‹œê°„
+    public float maxCheckDist;      // ë ˆì´ ê±°ë¦¬
 
-    public LayerMask layerMask;     // °Ë»çÇÒ ·¹ÀÌ¾î ¸¶½ºÅ©
+    public LayerMask layerMask;     // ê²€ì‚¬í•  ë ˆì´ì–´ ë§ˆìŠ¤í¬
 
-    //    public GameObject curInteractionOBJ;    // ÇöÀç ÂïÀº OBJ
+    //    public GameObject curInteractionOBJ;    // í˜„ì¬ ì°ì€ OBJ
 
-    private Camera _camera;                 // Ä«¸Ş¶ó Áß½ÉÀ» À§ÇÑ Ä«¸Ş¶ó
+    private Camera _camera;                 // ì¹´ë©”ë¼ ì¤‘ì‹¬ì„ ìœ„í•œ ì¹´ë©”ë¼
 
     void Start()
     {
@@ -28,33 +30,47 @@ public class Interaction : MonoBehaviour
 
     void Update()
     {
-        //OntryInteract();
+        tryInteract();
     }
 
-    public void OntryInteract()
+    private void tryInteract()
     {
-        //ÀÏÁ¤ ½Ã°£¸¶´Ù Ray ½î±â
-        //if (Time.time - _lastCheckTime > checkRate)
+        //ì¼ì • ì‹œê°„ë§ˆë‹¤ Ray ì˜ê¸°
+        if (Time.time - _lastCheckTime > checkRate)
         {
-          //  _lastCheckTime = Time.time;
+            _lastCheckTime = Time.time;
 
-           Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+            Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
 
-            //Ä«¸Ş¶ó ÁßÁ¡¿¡¼­ ·¹ÀÌ ¹ß»ç ÇØ¼­ Ãæµ¹ ÇßÀ¸¸é ?
+            //ì¹´ë©”ë¼ ì¤‘ì ì—ì„œ ë ˆì´ ë°œì‚¬ í•´ì„œ ì¶©ëŒ í–ˆìœ¼ë©´ ?
             if (Physics.Raycast(ray, out hit, maxCheckDist))
             {
-                // ray¸¦ ½÷¼­ interable °¡Á®¿À±â
-                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-                
-                //interable ÀÇ Á¸ÀçÇÏ°í && »óÈ£ÀÛ¿ëÀÌ °¡´ÉÇÑ »óÅÂ¶ó¸é
-                if(interactable !=null && interactable.CanInteract(this))
+                // rayë¥¼ ì´ì„œ interable ê°€ì ¸ì˜¤ê¸°
+                interactable = hit.collider.GetComponent<IInteractable>();
+
+                //interable ì˜ ì¡´ì¬í•˜ê³  && ìƒí˜¸ì‘ìš©ì´ ê°€ëŠ¥í•œ ìƒíƒœë¼ë©´
+                if (interactable != null && interactable.CanInteract(this))
                 {
-                    //»óÈ£ÀÛ¿ë ½ÇÇà
-                    interactable.Interact(this);
-                    Debug.Log(interactable.GetInteractionPrompt());
+                    //ë‹´ëŠ”ì—­í™œë§Œí•˜ê³  
+                    // íŠœí† ë¦¬ì–¼ ë³´ì—¬ì£¼ê¸° 
+
                 }
             }
+            else
+            {
+                interactable = null;
+            }
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && interactable != null)
+        {
+            //ìƒí˜¸ì‘ìš© ì‹¤í–‰
+            interactable.Interact(this);
+            Debug.Log(interactable.GetInteractionPrompt());
         }
     }
 
