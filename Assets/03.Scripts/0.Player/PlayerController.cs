@@ -112,6 +112,8 @@ public class PlayerController : MonoBehaviour
         
     }
 
+
+
     bool IsGround()
     {
         Ray[] rays = new Ray[4]
