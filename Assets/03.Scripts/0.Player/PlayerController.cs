@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,7 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float lookSensitivity;
     [SerializeField] float minXLook,maxXLook;
 
+
     [SerializeField] LayerMask groundLayerMask;
+    [SerializeField] Image pauseImg;
 
     [SerializeField]bool _isLookable;
     [SerializeField]bool _isJump;
@@ -115,7 +118,16 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void OnESC(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _isLookable = !_isLookable;
+            pauseImg.gameObject.SetActive(!_isLookable);
+            Cursor.lockState = _isLookable ? CursorLockMode.Locked : CursorLockMode.None;
+        }
 
+    }
 
     bool IsGround()
     {
