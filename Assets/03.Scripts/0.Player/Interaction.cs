@@ -73,9 +73,20 @@ public class Interaction : MonoBehaviour
             Debug.Log(interactable.GetInteractionPrompt());
         }
     }
-
+    public Transform GetHoldTransform()
+    {
+        return holdTransform;
+    }
     public bool CanPickUpObject()
     {
         return heldObject == null;
+    }
+    public void SetHeldObject(IPickable pickable)
+    {
+        heldObject = pickable;
+    }
+    public void ClearHeldObject()
+    {
+        heldObject = null;
     }
 }
