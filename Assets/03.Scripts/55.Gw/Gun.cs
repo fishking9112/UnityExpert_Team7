@@ -23,11 +23,11 @@ public class Gun : MonoBehaviour, IPickable
         Transform equipCamera = player.GetEquipCameraTransform();
         if (equipCamera != null)
         {
-            transform.SetParent(equipCamera);
-            transform.localPosition = new Vector3(1f, -0.4f, 2f);
-            transform.localRotation = Quaternion.identity;
+            transform.SetParent(equipCamera); // 부모의위치 = equipCamera
+            transform.localPosition = new Vector3(1f, -0.4f, 2f); //equipcamera에서 총이 보이는 위치
+            transform.localRotation = Quaternion.identity; //회전초기화(총을 발로차서 누워있는걸 들면 서있는상태로 바뀜)
 
-            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Rigidbody>().isKinematic = true; //물리영향 안받기
         }
 
         player.SetHeldObject(this);
@@ -36,21 +36,12 @@ public class Gun : MonoBehaviour, IPickable
 
     public void Drop(Interaction player)
     {
-        isPickedUp = false;
-
-        transform.SetParent(null);
-
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null)
-            rb.isKinematic = false;  // 물리 영향 다시 적용
-
-        player.ClearHeldObject();
-        Debug.Log("PortalGun 내려놓음!");
+        
     }
 
     public string GetInteractionPrompt()
     {
-        return isPickedUp ? "놓기" : "집기";
+        return "PortalGun 장착";
     }
 
     public bool CanInteract(Interaction player)
