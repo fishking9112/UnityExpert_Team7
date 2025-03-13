@@ -6,21 +6,24 @@ using UnityEngine.InputSystem;
 public class PortalGun : MonoBehaviour
 {
     [SerializeField] LayerMask canSummonPotalLayerMask;
-     Portal redPortal;
-     Portal bluePortal;
+    [SerializeField] Portal redPortal;
+    [SerializeField] Portal bluePortal;
     [SerializeField] GameObject redPortalPrefab;
     [SerializeField] GameObject bluePortalPrefab;
 
     private void Awake()
     {
-        if(redPortalPrefab == null)
+        if(redPortal == null)
         {
-            redPortalPrefab = Instantiate(redPortalPrefab);
+            redPortal = Instantiate(redPortalPrefab).GetComponent<Portal>();
         }
-        if (bluePortalPrefab == null)
+        if (bluePortal == null)
         {
-            bluePortalPrefab = Instantiate(bluePortalPrefab);
+            bluePortal = Instantiate(bluePortalPrefab).GetComponent<Portal>();
         }
+        redPortal.SetOtherPortal(bluePortal);
+        bluePortal.SetOtherPortal(redPortal);
+
         redPortal.gameObject.SetActive(false);
         bluePortal.gameObject.SetActive(false);
     }
