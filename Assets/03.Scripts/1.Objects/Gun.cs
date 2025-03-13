@@ -25,8 +25,8 @@ public class Gun : MonoBehaviour, IPickable
         {
             transform.SetParent(equipCamera); // 부모의위치 = equipCamera
             transform.localPosition = new Vector3(1f, -0.94f, 1.9f); //equipcamera에서 총이 보이는 위치
-            transform.localRotation = Quaternion.identity; //회전초기화(총을 발로차서 누워있는걸 들면 서있는상태로 바뀜)
-
+            transform.localRotation = Quaternion.Euler(8f, 270f, 0); //회전초기화(총을 발로차서 누워있는걸 들면 서있는상태로 바뀜)
+            transform.localScale = new Vector3(20, 20, 20);
             GetComponent<Rigidbody>().isKinematic = true; //물리영향 안받기
         }
 
