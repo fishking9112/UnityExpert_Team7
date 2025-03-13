@@ -37,12 +37,14 @@ public class Button : MonoBehaviour, IPressable
         // 버튼이 눌려져있지 않을때 상호작용 가능 
         return !isPressed;
     }
+    
 
     public string GetInteractionPrompt()
     {
         return "누르기";
     }
 
+    
 
 
 }

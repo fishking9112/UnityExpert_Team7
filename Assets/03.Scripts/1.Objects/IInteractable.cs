@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IInteractable 
 {
     
-    void Interact(Interaction player); //»óÈ£ÀÛ¿ëÇÏ±â 
+    void Interact(Interaction player); //ìƒí˜¸ì‘ìš©í•˜ê¸° 
     bool CanInteract(Interaction player); //
     string GetInteractionPrompt();
 }
