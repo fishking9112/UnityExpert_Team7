@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 /// <summary>
 /// 카메라 중심에서 찍히는 물체를 판단하기 위한 스크립트.
@@ -12,6 +13,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Transform holdTransform; // 물체를 들고 있을 위치
     private IPickable heldObject = null;
     private IInteractable interactable;
+    
 
     public float checkRate = 0.05f; // 검사 주기
     private float _lastCheckTime;   // 마지막 체크한 시간
@@ -19,9 +21,11 @@ public class Interaction : MonoBehaviour
 
     public LayerMask layerMask;     // 검사할 레이어 마스크
 
-    //    public GameObject curInteractionOBJ;    // 현재 찍은 OBJ
+    
 
     private Camera _camera;                 // 카메라 중심을 위한 카메라
+
+    private Cube heldCube = null;
 
     void Start()
     {
@@ -66,13 +70,33 @@ public class Interaction : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && interactable != null)
+        if (context.phase != InputActionPhase.Started) return;
+        
+        // 이미 큐브를 들고 있는 경우 -> 놓기
+        if (heldCube != null)
         {
-            //상호작용 실행
+            heldCube.Drop(this);
+            heldCube = null;
+            Debug.Log("큐브를 놓았습니다.");
+            return;
+        }
+        
+        // 큐브를 들고 있지 않고 상호작용 가능한 객체가 있는 경우
+        if (interactable != null)
+        {
             interactable.Interact(this);
             Debug.Log(interactable.GetInteractionPrompt());
+            
+            // 상호작용 후 큐브를 들고 있는지 확인
+            if (interactable is Cube cube)
+            {
+                heldCube = cube;
+            }
         }
     }
+
+
+
     public Transform GetHoldTransform()
     {
         return holdTransform;

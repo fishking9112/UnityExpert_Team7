@@ -999,7 +999,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1939017743}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1939017743}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
@@ -1007,15 +1015,31 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnInteract
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnDropCube
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Interaction, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Interaction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1583414420070019827, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
