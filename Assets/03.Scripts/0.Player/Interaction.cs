@@ -13,7 +13,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Transform holdTransform; // 물체를 들고 있을 위치
     private IPickable heldObject = null;
     private IInteractable interactable;
-
+    private Cube heldCube = null;
     public float checkRate = 0.05f; // 검사 주기
     private float _lastCheckTime;   // 마지막 체크한 시간
     public float maxCheckDist;      // 레이 거리
@@ -67,17 +67,35 @@ public class Interaction : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && interactable != null)
+        if (context.phase != InputActionPhase.Started) return;
+
+        // 이미 큐브를 들고 있는 경우 -> 놓기
+        if (heldCube != null)
         {
-            //상호작용 실행
+            heldCube.Drop(this);
+            heldCube = null;
+            Debug.Log("큐브를 놓았습니다.");
+            return;
+        }
+
+        // 큐브를 들고 있지 않고 상호작용 가능한 객체가 있는 경우
+        if (interactable != null)
+        {
+
             interactable.Interact(this);
             Debug.Log(interactable.GetInteractionPrompt());
+
+            // 상호작용 후 큐브를 들고 있는지 확인
+            if (interactable is Cube cube)
+            {
+                heldCube = cube;
+            }
         }
     }
     public Transform GetEquipCameraTransform()
     {
 
-        return equipCamera; 
+        return equipCamera;
     }
     public Transform GetHoldTransform()
     {
