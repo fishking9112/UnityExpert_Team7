@@ -7,6 +7,8 @@ public class Cube : MonoBehaviour,IPickable
     private bool isPickedUp = false;
 
     public bool IsPickedUp => isPickedUp;
+    Interaction interaction = null;
+
 
     public void Interact(Interaction player)
     {
@@ -21,19 +23,22 @@ public class Cube : MonoBehaviour,IPickable
         isPickedUp= true;
 
 
+        
         // 위치 조정
         // 부모오브젝트를 변경해주고 초기화 
         transform.SetParent(player.GetHoldTransform());
         transform.localPosition = Vector3.zero;
-        GetComponent<Rigidbody>().isKinematic = true; //중력영향 X /물리적 충돌 X rigidbody 
+        transform.rotation= Quaternion.identity;
+        GetComponent<Rigidbody>().isKinematic = true; //중력영향 X /물리적 충돌 X
         // player가지고있는 오브젝트 추가
         player.SetHeldObject(this);
+        interaction = player;
     }
     public void Drop(Interaction player)
     {
         //놓기
         isPickedUp= false;
-
+        
         transform.SetParent(null);
         GetComponent<Rigidbody>().isKinematic= false;
         // player가지고있는 오브젝트 없다고 초기화
