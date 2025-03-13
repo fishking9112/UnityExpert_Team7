@@ -703,15 +703,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_ActionId
       value: 0f85a9d6-5f42-4327-a8af-7375b852206d
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 879a0f14-0d32-49c8-ab9d-1a877f796eab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: e42782cb-49eb-4f42-9e2a-b4e39b5da3fc
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_ActionName
       value: Palyer/Interaction[/Keyboard/e]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Palyer/ShotRed[/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Palyer/ShotBlue[/Mouse/rightButton]
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
@@ -719,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -731,7 +747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OntryInteract
+      value: OnInteract
       objectReference: {fileID: 0}
     - target: {fileID: 1212647549215497389, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
