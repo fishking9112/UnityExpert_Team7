@@ -41,7 +41,7 @@ public class Portal : MonoBehaviour
         float top = -localPos.y + (portalHeight / 2f);
         float bottom = -localPos.y - (portalHeight / 2f);
         float near = Vector3.Distance(portalCamera.transform.position, transform.position) + 0.2f;
-        float far = 100f;
+        float far = 300f;
 
         Matrix4x4 _metrix = new Matrix4x4();
         _metrix[0, 0] = 2f * near / (right - left);
