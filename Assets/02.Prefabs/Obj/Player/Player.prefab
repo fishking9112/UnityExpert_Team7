@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8441481252811430340}
+  cameraContainer: {fileID: 907247242908247876}
 --- !u!114 &8441481252811430340
 MonoBehaviour:
   m_ObjectHideFlags: 0
