@@ -40,7 +40,7 @@ public class SoundManager : MonoBehaviour
     {
         if (index >= 0 && index < sfxClips.Length)
         {
-            sfxSource.PlayOneShot(sfxClips[index], volume);
+            //sfxSource.PlayOneShot(sfxClips[index], volume);
         }
     }
 
@@ -51,6 +51,6 @@ public class SoundManager : MonoBehaviour
 
     public void SetSFXVolume(float volume)
     {
-        sfxSource.volume = volume;
+        //sfxSource.volume = volume;
     }
 }

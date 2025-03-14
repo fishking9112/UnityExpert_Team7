@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5307789056200121226}
   - component: {fileID: 955862658438257708}
   - component: {fileID: 260429621031055214}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Btn_Rayser_Interact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 2179738264147644433}
   - component: {fileID: 154901115373149798}
   - component: {fileID: 296615669704350379}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
