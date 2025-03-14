@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSummonPotalLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   redPortal: {fileID: 0}
   bluePortal: {fileID: 0}
   redPortalPrefab: {fileID: 2171579203525894255, guid: f8ebc9fc1e226164a9a5f8172548ae14, type: 3}
