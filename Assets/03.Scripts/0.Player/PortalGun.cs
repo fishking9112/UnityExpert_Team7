@@ -23,6 +23,8 @@ public class PortalGun : MonoBehaviour
         }
         redPortal.SetOtherPortal(bluePortal);
         bluePortal.SetOtherPortal(redPortal);
+        redPortal.player = GetComponentInParent<Player>();
+        bluePortal.player = GetComponentInParent<Player>();
 
         redPortal.gameObject.SetActive(false);
         bluePortal.gameObject.SetActive(false);
