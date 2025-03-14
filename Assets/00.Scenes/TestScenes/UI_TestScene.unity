@@ -481,6 +481,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2134048446227948761, guid: 7dafc878a245dd94d9a4d6a39fc447cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148064029708999117, guid: 7dafc878a245dd94d9a4d6a39fc447cf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChangeScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148064029708999117, guid: 7dafc878a245dd94d9a4d6a39fc447cf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: UI_TestScene_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166141734323728945, guid: 7dafc878a245dd94d9a4d6a39fc447cf, type: 3}
+      propertyPath: m_Name
+      value: NextSceneImage
+      objectReference: {fileID: 0}
     - target: {fileID: 5910899444352449508, guid: 7dafc878a245dd94d9a4d6a39fc447cf, type: 3}
       propertyPath: m_Name
       value: TitleMenuCanvas
@@ -497,6 +513,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1291053554}
+    - target: {fileID: 8931294254739103763, guid: 7dafc878a245dd94d9a4d6a39fc447cf, type: 3}
+      propertyPath: nextSceneName
+      value: UI_TestScene_2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
