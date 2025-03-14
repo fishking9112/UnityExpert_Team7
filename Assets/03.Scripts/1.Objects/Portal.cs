@@ -20,8 +20,10 @@ public class Portal : MonoBehaviour
     {
         portalCamera.transform.localPosition = otherPotal.transform.InverseTransformPoint(player.cameraContainer.position);
         CameraProjectionUpdate();
-        Vector3 lookPoint = transform.position + 0.2f * transform.forward * (isRedPortal ? 1 : -1);
-        portalCamera.transform.localRotation = FindLookRotate(transform.InverseTransformDirection(lookPoint - portalCamera.transform.position),transform.up);
+        Vector3 lookPoint = transform.position + 0.2f *( transform.forward * (isRedPortal ? 1 : -1));
+        portalCamera.transform.localRotation = isRedPortal? Quaternion.identity : Quaternion.Euler(0,180,0);
+        
+        //portalCamera.transform.localRotation = FindLookRotate(-portalCamera.transform.localPosition,transform.up);
         //portalCamera.transform.LookAt(lookPoint);
     }
     Quaternion FindLookRotate(Vector3 targetForward, Vector3 targetUp)
@@ -41,7 +43,7 @@ public class Portal : MonoBehaviour
         float top = -localPos.y + (portalHeight / 2f);
         float bottom = -localPos.y - (portalHeight / 2f);
         float near = Vector3.Distance(portalCamera.transform.position, transform.position) + 0.2f;
-        float far = 100f;
+        float far = 300f;
 
         Matrix4x4 _metrix = new Matrix4x4();
         _metrix[0, 0] = 2f * near / (right - left);
