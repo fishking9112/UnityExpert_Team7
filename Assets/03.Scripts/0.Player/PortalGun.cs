@@ -6,8 +6,10 @@ using UnityEngine.InputSystem;
 public class PortalGun : MonoBehaviour
 {
     [SerializeField] LayerMask canSummonPotalLayerMask;
-    [SerializeField] Portal redPortal;
-    [SerializeField] Portal bluePortal;
+
+    Portal redPortal;
+    Portal bluePortal;
+
     [SerializeField] GameObject redPortalPrefab;
     [SerializeField] GameObject bluePortalPrefab;
 
