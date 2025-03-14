@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rayser_02 : MonoBehaviour
+public class Rayser_Main : MonoBehaviour
 {
     public GameObject Raybody; //레이저 쏘는 몸통
     public GameObject ScaleDistance; //거리에 따른 스케일 변화를 위한 오브젝트 대상
     public GameObject RayResult; // 충돌하느 위치에 촐력할 결과 임펙트
     private float maxDistance;
-    private GameObject lastHitCube = null;
-    // Start is called before the first frame update
+    private GameObject lastHitObj = null;
+    
     void Start()
     {
         maxDistance = 200f;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         RaycastHit hit;
-        GameObject currentHitCube = null;
+        GameObject currentHitObj = null;
 
         //쏘는 위치,방향,결과값,최대인식거리
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
@@ -53,26 +53,25 @@ public class Rayser_02 : MonoBehaviour
             if (layserIndex == LayerMask.NameToLayer("LayserCube"))
             {
 
-                currentHitCube = hit.collider.gameObject;
+                currentHitObj = hit.collider.gameObject;
                 // hit.point 에서 ray를 다시 쏘기
                 hit.collider.GetComponent<Cube_Rayser>().ChkRayserLayser();
             }
-            else
-            {
 
-            }
 
         }
 
-        if (lastHitCube != null && lastHitCube != currentHitCube)
+        if (lastHitObj != null && lastHitObj != currentHitObj)
         {
-            Cube_Rayser lastCubeRayser = lastHitCube.GetComponent<Cube_Rayser>();
+            Cube_Rayser lastCubeRayser = lastHitObj.GetComponent<Cube_Rayser>();
             if (lastCubeRayser != null)
             {
                 lastCubeRayser.ChkOutRayserLayser();
             }
+
         }
 
-        lastHitCube = currentHitCube;
+
+        lastHitObj = currentHitObj;
     }
 }
