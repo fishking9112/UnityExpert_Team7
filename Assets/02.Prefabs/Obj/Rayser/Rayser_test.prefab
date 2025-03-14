@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1135407893164534119}
   - component: {fileID: 4866705850703106127}
   m_Layer: 0
-  m_Name: Rayser_01
+  m_Name: Rayser_test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
