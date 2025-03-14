@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Portal : MonoBehaviour
@@ -9,8 +11,8 @@ public class Portal : MonoBehaviour
     Collider wallCollider;
     [SerializeField] Camera portalCamera;
     public Player player;
-    float portalWidth = 1.6f;
-    float portalHeight = 3;
+    [SerializeField] float portalWidth;
+    [SerializeField] float portalHeight;
     private void Update()
     {
         SetCameraPositon();
@@ -18,22 +20,25 @@ public class Portal : MonoBehaviour
     }
     void SetCameraPositon()
     {
-        portalCamera.transform.localPosition = otherPotal.transform.InverseTransformPoint(player.cameraContainer.position);
+        Vector3 localPos = otherPotal.transform.InverseTransformPoint(player.cameraContainer.position);
+        localPos.z = -localPos.z;
+        localPos.x = -localPos.x;
+        portalCamera.transform.localPosition = localPos;
         CameraProjectionUpdate();
-        Vector3 lookPoint = transform.position + 0.2f *( transform.forward * (isRedPortal ? 1 : -1));
-        portalCamera.transform.localRotation = isRedPortal? Quaternion.identity : Quaternion.Euler(0,180,0);
+        Vector3 lookPoint = transform.position + (0.01f *transform.forward);
+        portalCamera.transform.localRotation =Quaternion.identity;
         
         //portalCamera.transform.localRotation = FindLookRotate(-portalCamera.transform.localPosition,transform.up);
         //portalCamera.transform.LookAt(lookPoint);
     }
-    Quaternion FindLookRotate(Vector3 targetForward, Vector3 targetUp)
-    {
-        Vector3 forward = targetForward;
-        Vector3 right = Vector3.Cross(targetUp, forward);
-        Vector3 up = Vector3.Cross(forward, right);
+    //Quaternion FindLookRotate(Vector3 targetForward, Vector3 targetUp)
+    //{
+    //    Vector3 forward = targetForward;
+    //    Vector3 right = Vector3.Cross(targetUp, forward);
+    //    Vector3 up = Vector3.Cross(forward, right);
 
-        return Quaternion.LookRotation(forward, up);
-    }
+    //    return Quaternion.LookRotation(forward, up);
+    //}
 
     void CameraProjectionUpdate()
     {
@@ -42,7 +47,7 @@ public class Portal : MonoBehaviour
         float left = -localPos.x - (portalWidth / 2f);
         float top = -localPos.y + (portalHeight / 2f);
         float bottom = -localPos.y - (portalHeight / 2f);
-        float near = Vector3.Distance(portalCamera.transform.position, transform.position) + 0.2f;
+        float near = Vector3.Distance(portalCamera.transform.position, transform.position) + 0.01f;
         float far = 300f;
 
         Matrix4x4 _metrix = new Matrix4x4();
@@ -56,12 +61,12 @@ public class Portal : MonoBehaviour
 
         portalCamera.projectionMatrix = _metrix;
     }
-    void CameraUpdate()
-    {
-        float distance = Vector3.Distance(player.transform.position, otherPotal.transform.position);
-        //portalCamera.fieldOfView = 60f / (1 + distance);
-        portalCamera.nearClipPlane = distance + 0.3f;
-    }
+    //void CameraUpdate()
+    //{
+    //    float distance = Vector3.Distance(player.transform.position, otherPotal.transform.position);
+    //    //portalCamera.fieldOfView = 60f / (1 + distance);
+    //    portalCamera.nearClipPlane = distance + 0.3f;
+    //}
     public void SetOtherPortal(Portal Potal)
     {
         otherPotal = Potal;
@@ -80,7 +85,13 @@ public class Portal : MonoBehaviour
         wallCollider = hitCollider;
         wallCollider.enabled = false;
 
-        transform.rotation = FindLookRotate(isRedPortal ? hitNormal : -hitNormal, Vector3.up);
+        Vector3 forward = hitNormal;
+        //Vector3 forward = isRedPortal ? hitNormal : -hitNormal;
+        Vector3 right = Vector3.Cross(Vector3.up, forward);
+        Vector3 up = Vector3.Cross(forward, right);
+
+        transform.rotation = Quaternion.LookRotation(forward, up);
+        
 
         //Vector3 forward = isRedPortal? hitNormal : -hitNormal;
         //Vector3 right = Vector3.Cross(Vector3.up, forward);
@@ -95,6 +106,10 @@ public class Portal : MonoBehaviour
         transform.position = hitPoint;
 
         plane = new Plane(transform.forward, transform.position);
+
+        bool isPortalOpen = otherPotal.gameObject.activeSelf;
+        GetComponent<Collider>().isTrigger = isPortalOpen;
+        otherPotal.GetComponent<Collider>().isTrigger = isPortalOpen;
         //transform.rotation = Quaternion.Euler(isRedPortal? rotationX : -rotationX, rotationY, 0);
     }
 
@@ -104,9 +119,36 @@ public class Portal : MonoBehaviour
     //}
     private void OnTriggerStay(Collider other)
     {
-        if (isRedPortal && plane.GetDistanceToPoint(other.transform.position) > 0)
+        if (plane.GetDistanceToPoint(other.transform.position) >= 0)
             return;
-        if (!isRedPortal && plane.GetDistanceToPoint(other.transform.position) < 0)
+        
+        
+        
+        other.transform.SetParent(transform);
+        other.transform.SetParent(otherPotal.transform,false);
+        Vector3 localPos = other.transform.localPosition;
+        other.transform.localPosition = new Vector3(-localPos.x, localPos.y, -localPos.z);
+
+
+        Vector3 localEuler = other.transform.localRotation.eulerAngles;
+        localEuler.y = localEuler.y+180f;
+        other.transform.localRotation = Quaternion.Euler(localEuler);
+
+
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        Vector3 velocity = rb.velocity;
+        velocity = transform.InverseTransformDirection(velocity);
+        velocity = new Vector3(-velocity.x, velocity.y, -velocity.z);
+        velocity = otherPotal.transform.TransformDirection(velocity);
+        rb.velocity = velocity;
+
+        other.transform.SetParent(null);
+
+        /*
+        //==============================================================
+        if (isRedPortal && plane.GetDistanceToPoint(other.transform.position) >= 0)
+            return;
+        if (!isRedPortal && plane.GetDistanceToPoint(other.transform.position) <= 0)
             return;
 
         
@@ -146,11 +188,13 @@ public class Portal : MonoBehaviour
         rb.velocity = quaternion * rb.velocity;
         //enterPosition = otherPotal.transform.rotation * enterPosition;
         //other.transform.position = otherPotal.transform.position + enterPosition + ((isRedPortal ? -otherPotal.transform.forward : otherPotal.transform.forward) * 0.1f);
+        */
     }
     //private void OnTriggerExit(Collider other)
     //{
     //    other.transform.SetParent (null);
     //}
+
 
     public void LaserInput(Vector3 hitPoint,Vector3 startPosition)
     {
