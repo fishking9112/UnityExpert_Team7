@@ -164,7 +164,19 @@ MonoBehaviour:
     m_ActionId: 12c6aaef-d202-46c4-a3d3-f016991f22e6
     m_ActionName: Palyer/Look
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6014277431225518567}
+        m_TargetAssemblyTypeName: Interaction, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0f85a9d6-5f42-4327-a8af-7375b852206d
     m_ActionName: Palyer/Interaction[/Keyboard/e]
   - m_PersistentCalls:
@@ -217,6 +229,7 @@ MonoBehaviour:
   _isLookable: 0
   _isJump: 0
   _isGround: 0
+  standSpeed: 0
 --- !u!114 &6014277431225518567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dd5ea310c89dd46b4740c1a1f1679d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipCamera: {fileID: 0}
   holdTransform: {fileID: 177286585033448488}
   checkRate: 0.05
   maxCheckDist: 3
