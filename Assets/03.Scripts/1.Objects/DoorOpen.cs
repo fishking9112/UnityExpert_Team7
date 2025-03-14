@@ -13,6 +13,7 @@ public class DoorOpen : MonoBehaviour
 {
     
     public Transform Door;
+    //[SerializeField]private List<IPressable> pressables =new List<IPressable>();
     public List<Button> pressables;
 
     private List<bool> btn_pressed;

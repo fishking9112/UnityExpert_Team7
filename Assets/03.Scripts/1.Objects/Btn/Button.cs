@@ -44,11 +44,11 @@ public class Button : MonoBehaviour, IPressable
         return "누르기";
     }
 
-    public void ChkedRayser()
+    public void ChkedPress()
     {
         isPressed = true;
     }
-    public void ChkOutRayser()
+    public void ChkOutPress()
     {
         isPressed = false;
     }
