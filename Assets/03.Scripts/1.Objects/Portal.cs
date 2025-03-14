@@ -6,10 +6,25 @@ public class Portal : MonoBehaviour
     Plane plane;
     [SerializeField] bool isRedPortal;
     Collider wallCollider;
+    [SerializeField] Camera portalCamera;
+    public Player player;
 
-
-
-
+    private void Update()
+    {
+        SetCameraPositon();
+        CameraUpdate();
+    }
+    void SetCameraPositon()
+    {
+        portalCamera.transform.localPosition = otherPotal.transform.InverseTransformPoint(player.cameraContainer.position);
+        portalCamera.transform.LookAt(transform);
+    }
+    void CameraUpdate()
+    {
+        float distance = Vector3.Distance(player.transform.position, otherPotal.transform.position);
+        //portalCamera.fieldOfView = 60f / (1 + distance);
+        portalCamera.nearClipPlane = distance + 0.3f;
+    }
     public void SetOtherPortal(Portal Potal)
     {
         otherPotal = Potal;
@@ -38,6 +53,8 @@ public class Portal : MonoBehaviour
         //float rotationX = 90f - Vector3.Angle(Vector3.up, hitNormal);
 
         transform.position = hitPoint;
+
+        plane = new Plane(transform.forward, transform.position);
         //transform.rotation = Quaternion.Euler(isRedPortal? rotationX : -rotationX, rotationY, 0);
     }
 
@@ -47,9 +64,6 @@ public class Portal : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        plane = new Plane(transform.forward, transform.position);
-
-
         if (isRedPortal && plane.GetDistanceToPoint(other.transform.position) > 0)
             return;
         if (!isRedPortal && plane.GetDistanceToPoint(other.transform.position) < 0)
