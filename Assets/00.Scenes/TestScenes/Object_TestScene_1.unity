@@ -128,32 +128,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3870529743266626314, guid: 8fabd2a00c81fac4fb4137831dc1b7d0, type: 3}
   m_PrefabInstance: {fileID: 8600898538548176082}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &245069369 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8090276881622606747, guid: aefaf3c1c4438da42839943d16383a22, type: 3}
-  m_PrefabInstance: {fileID: 8868108581814266671}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &245069371
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245069369}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &321465499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1172,10 +1146,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8090276881622606747, guid: aefaf3c1c4438da42839943d16383a22, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 8252112498099468257, guid: aefaf3c1c4438da42839943d16383a22, type: 3}
       propertyPath: m_Name
       value: Btn_Cube_Interact
@@ -1183,10 +1153,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8090276881622606747, guid: aefaf3c1c4438da42839943d16383a22, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 245069371}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aefaf3c1c4438da42839943d16383a22, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
