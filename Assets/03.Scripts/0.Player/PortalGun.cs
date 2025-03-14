@@ -13,6 +13,9 @@ public class PortalGun : MonoBehaviour
     [SerializeField] GameObject redPortalPrefab;
     [SerializeField] GameObject bluePortalPrefab;
 
+    WallPortalAble redWall;
+    WallPortalAble blueWall;
+
     private void Awake()
     {
         if(redPortal == null)
@@ -37,11 +40,17 @@ public class PortalGun : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 2000, canSummonPotalLayerMask))
+            if (Physics.Raycast(ray, out RaycastHit hit, 2000f))
             {
-                
-                Debug.Log($"맞은물체 {hit.transform.name}");
-                redPortal.SummonPortal(hit.point, hit.normal, hit.collider);
+                if (hit.transform.TryGetComponent<WallPortalAble>(out WallPortalAble wall) && wall != blueWall)
+                {
+                    redWall?.SetMainCollider(true);
+                    redWall = hit.transform.GetComponent<WallPortalAble>();
+                    redWall.SetMainCollider(false);
+                    Vector3 summonPos = redWall.SummonPortal(hit.point);
+                    redPortal.SummonPortal(summonPos, hit.normal);
+                }
+                //hit.point 에서 불꽃이펙트 실행
             }
         }
         
@@ -52,9 +61,17 @@ public class PortalGun : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 2000, canSummonPotalLayerMask))
+            if (Physics.Raycast(ray, out RaycastHit hit, 2000f))
             {
-                bluePortal.SummonPortal(hit.point, hit.normal, hit.collider);
+                if(hit.transform.TryGetComponent<WallPortalAble>(out WallPortalAble wall) && wall != redWall)
+                {
+                    blueWall?.SetMainCollider(true);
+                    blueWall = wall;
+                    blueWall.SetMainCollider(false);
+                    Vector3 summonPos = blueWall.SummonPortal(hit.point);
+                    bluePortal.SummonPortal(summonPos, hit.normal);
+                }
+                //hit.point 에서 불꽃이펙트 실행
             }
         }
         

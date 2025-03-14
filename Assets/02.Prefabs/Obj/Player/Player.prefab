@@ -274,7 +274,7 @@ MonoBehaviour:
   _isLookable: 0
   _isJump: 0
   _isGround: 0
-  standSpeed: 4
+  standSpeed: 2
 --- !u!114 &6014277431225518567
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,18 +1,20 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Portal : MonoBehaviour
 {
+    public Player player;
+
     [SerializeField] Portal otherPotal;
     Plane plane;
     [SerializeField] bool isRedPortal;
-    Collider wallCollider;
     [SerializeField] Camera portalCamera;
-    public Player player;
     [SerializeField] float portalWidth;
     [SerializeField] float portalHeight;
+    [SerializeField] Image notConnectImg;
     private void Update()
     {
         SetCameraPositon();
@@ -39,6 +41,8 @@ public class Portal : MonoBehaviour
 
     //    return Quaternion.LookRotation(forward, up);
     //}
+    
+
 
     void CameraProjectionUpdate()
     {
@@ -73,17 +77,13 @@ public class Portal : MonoBehaviour
     }
     
     
-    public void SummonPortal(Vector3 hitPoint, Vector3 hitNormal, Collider hitCollider)
+    public void SummonPortal(Vector3 hitPoint, Vector3 hitNormal)
     {
 
 
         this.gameObject.SetActive(true);
-        if(wallCollider != null)
-        {
-            wallCollider.enabled = true;
-        }
-        wallCollider = hitCollider;
-        wallCollider.enabled = false;
+
+        IsConnected();
 
         Vector3 forward = hitNormal;
         //Vector3 forward = isRedPortal ? hitNormal : -hitNormal;
@@ -112,7 +112,12 @@ public class Portal : MonoBehaviour
         otherPotal.GetComponent<Collider>().isTrigger = isPortalOpen;
         //transform.rotation = Quaternion.Euler(isRedPortal? rotationX : -rotationX, rotationY, 0);
     }
-
+    void IsConnected()
+    {
+        bool connected = otherPotal.gameObject.activeSelf;
+        notConnectImg.enabled = !connected;
+        otherPotal.notConnectImg.enabled = !connected;
+    }
     //private void OnTriggerEnter(Collider other)
     //{
     //    other.transform.SetParent(transform);
