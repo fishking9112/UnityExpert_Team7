@@ -265,12 +265,12 @@ MonoBehaviour:
   maxXLook: 85
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   pauseImg: {fileID: 0}
   _isLookable: 0
   _isJump: 0
   _isGround: 0
-  standSpeed: 0
+  standSpeed: 4
 --- !u!114 &6014277431225518567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSummonPotalLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   redPortal: {fileID: 0}
   bluePortal: {fileID: 0}
   redPortalPrefab: {fileID: 2171579203525894255, guid: f8ebc9fc1e226164a9a5f8172548ae14, type: 3}
