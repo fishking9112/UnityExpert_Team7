@@ -124,10 +124,11 @@ public class Portal : MonoBehaviour
     //}
     private void OnTriggerStay(Collider other)
     {
+        if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
+            return;
+
         if (plane.GetDistanceToPoint(other.transform.position) >= 0)
             return;
-        
-        
         
         other.transform.SetParent(transform);
         other.transform.SetParent(otherPotal.transform,false);
@@ -200,14 +201,42 @@ public class Portal : MonoBehaviour
     //    other.transform.SetParent (null);
     //}
 
+    void Telefort(Collider other)
+    {
+        if (plane.GetDistanceToPoint(other.transform.position) >= 0)
+            return;
 
+        other.transform.SetParent(transform);
+        other.transform.SetParent(otherPotal.transform, false);
+        Vector3 localPos = other.transform.localPosition;
+        other.transform.localPosition = new Vector3(-localPos.x, localPos.y, -localPos.z);
+
+
+        Vector3 localEuler = other.transform.localRotation.eulerAngles;
+        localEuler.y = localEuler.y + 180f;
+        other.transform.localRotation = Quaternion.Euler(localEuler);
+
+
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        Vector3 velocity = rb.velocity;
+        velocity = transform.InverseTransformDirection(velocity);
+        velocity = new Vector3(-velocity.x, velocity.y, -velocity.z);
+        velocity = otherPotal.transform.TransformDirection(velocity);
+        rb.velocity = velocity;
+
+        other.transform.SetParent(null);
+    }
     public void LaserInput(Vector3 hitPoint,Vector3 startPosition)
     {
         Vector3 laserDirection = hitPoint - startPosition;
         laserDirection = transform.InverseTransformDirection(laserDirection);
+        laserDirection = new Vector3(-laserDirection.x,laserDirection.y,-laserDirection.z);
+
         laserDirection = otherPotal.transform.TransformDirection(laserDirection);
 
-        Vector3 newStartPosition = otherPotal.transform.TransformPoint(transform.InverseTransformPoint(hitPoint)) + (isRedPortal ? -0.1f : 0.1f) * otherPotal.transform.forward;
+        Vector3 localHitPoint = transform.InverseTransformPoint(hitPoint);
+
+        Vector3 newStartPosition = otherPotal.transform.TransformPoint(localHitPoint) + (otherPotal.transform.forward * 0.01f);
     }
 
 
