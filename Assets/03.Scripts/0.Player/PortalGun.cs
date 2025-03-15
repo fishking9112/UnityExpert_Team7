@@ -13,8 +13,8 @@ public class PortalGun : MonoBehaviour
     [SerializeField] GameObject redPortalPrefab;
     [SerializeField] GameObject bluePortalPrefab;
 
-    WallPortalAble redWall;
-    WallPortalAble blueWall;
+    BasePortalAble redWall;
+    BasePortalAble blueWall;
 
     private void Awake()
     {
@@ -42,10 +42,10 @@ public class PortalGun : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit, 2000f, canShotPotalLayerMask))
             {
-                if (hit.transform.TryGetComponent<WallPortalAble>(out WallPortalAble wall) && wall != blueWall)
+                if (hit.transform.TryGetComponent<BasePortalAble>(out BasePortalAble wall) && wall != blueWall)
                 {
                     redWall?.SetMainCollider(true);
-                    redWall = hit.transform.GetComponent<WallPortalAble>();
+                    redWall = wall;
                     redWall.SetMainCollider(false);
                     Vector3 summonPos = redWall.SummonPortal(hit.point);
                     redPortal.SummonPortal(summonPos, hit.normal);
@@ -63,7 +63,7 @@ public class PortalGun : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit, 2000f, canShotPotalLayerMask))
             {
-                if(hit.transform.TryGetComponent<WallPortalAble>(out WallPortalAble wall) && wall != redWall)
+                if(hit.transform.TryGetComponent<BasePortalAble>(out BasePortalAble wall) && wall != redWall)
                 {
                     blueWall?.SetMainCollider(true);
                     blueWall = wall;

@@ -2,28 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallPortalAble : MonoBehaviour
+public class PortalWall : BasePortalAble
 {
-    [SerializeField] Collider mainCollider;
-    [SerializeField] BoxCollider[] colliders;
-
-    private void Start()
-    {
-        mainCollider.enabled = true;
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].enabled = false;
-        }
-    }
-    public void SetMainCollider(bool value)
-    {
-        mainCollider.enabled = value;
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].enabled = !value;
-        }
-    }
-    public Vector3 SummonPortal(Vector3 hitPosition)
+    public override Vector3 SummonPortal(Vector3 hitPosition)
     {
         Vector3 localHitPosition = transform.InverseTransformPoint(hitPosition);
         Vector3 summonPosition = new Vector3(localHitPosition.x, Mathf.Clamp(localHitPosition.y, 1.5f, 7.5f), Mathf.Clamp(localHitPosition.z, 0.8f, 5.2f));
