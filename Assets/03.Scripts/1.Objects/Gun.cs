@@ -19,6 +19,7 @@ public class Gun : MonoBehaviour, IPickable
     {
         isPickedUp = true;
 
+        player.GetComponentInChildren<PortalGun>().ActivatePortalGun(true);
        
         Transform equipCamera = player.GetEquipCameraTransform();
         if (equipCamera != null)

@@ -6,4 +6,5 @@ public class Player : MonoBehaviour
 {
     public PlayerController controller;
     public Transform cameraContainer;
+    public PortalGun portalGun;
 }
