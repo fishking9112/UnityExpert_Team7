@@ -486,9 +486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f684419559b714f9b900e65536ded6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSummonPotalLayerMask:
+  canShotPotalLayerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2368
   redPortalPrefab: {fileID: 2171579203525894255, guid: f8ebc9fc1e226164a9a5f8172548ae14, type: 3}
   bluePortalPrefab: {fileID: 6644729409242311427, guid: bd47d8df2e543c0409da80a108250628, type: 3}
 --- !u!1 &6437964855181040017

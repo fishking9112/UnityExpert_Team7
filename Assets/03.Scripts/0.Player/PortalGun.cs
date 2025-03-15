@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PortalGun : MonoBehaviour
 {
-    [SerializeField] LayerMask canSummonPotalLayerMask;
+    [SerializeField] LayerMask canShotPotalLayerMask;
 
     Portal redPortal;
     Portal bluePortal;
@@ -40,7 +40,7 @@ public class PortalGun : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 2000f))
+            if (Physics.Raycast(ray, out RaycastHit hit, 2000f, canShotPotalLayerMask))
             {
                 if (hit.transform.TryGetComponent<WallPortalAble>(out WallPortalAble wall) && wall != blueWall)
                 {
@@ -61,7 +61,7 @@ public class PortalGun : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 2000f))
+            if (Physics.Raycast(ray, out RaycastHit hit, 2000f, canShotPotalLayerMask))
             {
                 if(hit.transform.TryGetComponent<WallPortalAble>(out WallPortalAble wall) && wall != redWall)
                 {
