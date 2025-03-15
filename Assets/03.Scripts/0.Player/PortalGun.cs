@@ -16,6 +16,8 @@ public class PortalGun : MonoBehaviour
     BasePortalAble redWall;
     BasePortalAble blueWall;
 
+    bool canShotPortal;
+
     private void Awake()
     {
         if(redPortal == null)
@@ -33,9 +35,13 @@ public class PortalGun : MonoBehaviour
 
         redPortal.gameObject.SetActive(false);
         bluePortal.gameObject.SetActive(false);
+
+        canShotPortal = false;
     }
     public void OnShotRedPortal(InputAction.CallbackContext context)
     {
+        if (!canShotPortal)
+            return;
         if (context.performed)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
@@ -57,6 +63,8 @@ public class PortalGun : MonoBehaviour
     }
     public void OnShotBluePortal(InputAction.CallbackContext context)
     {
+        if (!canShotPortal)
+            return;
         if (context.performed)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
@@ -75,5 +83,10 @@ public class PortalGun : MonoBehaviour
             }
         }
         
+    }
+
+    public void ActivatePortalGun(bool value)
+    {
+         canShotPortal = value;
     }
 }
