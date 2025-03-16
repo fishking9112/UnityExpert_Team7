@@ -981,9 +981,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6020633164116439058, guid: c636135f79862e547ba6de10faaf4e61, type: 3}
+      propertyPath: bgmClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020633164116439058, guid: c636135f79862e547ba6de10faaf4e61, type: 3}
+      propertyPath: sfxClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020633164116439058, guid: c636135f79862e547ba6de10faaf4e61, type: 3}
       propertyPath: sfxSource.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6020633164116439058, guid: c636135f79862e547ba6de10faaf4e61, type: 3}
+      propertyPath: bgmClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e11a3f731847f0448845ec6c60b679ba, type: 3}
+    - target: {fileID: 6020633164116439058, guid: c636135f79862e547ba6de10faaf4e61, type: 3}
+      propertyPath: sfxClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 263f8aaa01d5d0041b082b7b69d9ca02, type: 3}
     - target: {fileID: 6020633164116439058, guid: c636135f79862e547ba6de10faaf4e61, type: 3}
       propertyPath: sfxSource.Array.data[0]
       value: 
@@ -2413,34 +2429,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7248163525193199457, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1422373203}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
---- !u!1 &1422373201 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7248163525193199457, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-  m_PrefabInstance: {fileID: 1422373200}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &1422373202 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 9005782071072715149, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-  m_PrefabInstance: {fileID: 1422373200}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1422373203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1422373201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbbc8ee16efb58645b45523d2ffdb154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneCamera: {fileID: 1422373202}
 --- !u!1 &1439570855
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,10 +3441,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2976345754268480097, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3502347187986700562, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3535,25 +3521,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4033497397653459926, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862482023811843880, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
-      propertyPath: m_Name
-      value: BGImage
-      objectReference: {fileID: 0}
-    - target: {fileID: 5359120407001079256, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
-      propertyPath: m_Name
-      value: TitleImage
-      objectReference: {fileID: 0}
     - target: {fileID: 7667863251986408538, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
       propertyPath: m_Name
       value: GameMenuCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7667863251986408538, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
