@@ -244,7 +244,7 @@ public class Portal : MonoBehaviour
 
         Vector3 newStartPosition = otherPotal.transform.TransformPoint(localHitPoint) + (otherPotal.transform.forward * 0.01f);
 
-        return localHitPoint;
+        return newStartPosition;
     }
     public Vector3 LaserDirection(Vector3 hitPoint,Vector3 startPosition)
     {
