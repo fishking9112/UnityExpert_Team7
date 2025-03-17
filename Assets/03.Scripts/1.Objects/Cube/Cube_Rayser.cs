@@ -7,6 +7,7 @@ public class Cube_Rayser : MonoBehaviour
     public GameObject Raybody;
     public GameObject ScaleDistance;
     public GameObject RayResult;
+    
 
     private bool ChkRayser = false;
     private float maxDistance = 200f;

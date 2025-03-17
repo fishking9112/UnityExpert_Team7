@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,8 @@ public class Portal : MonoBehaviour
     [SerializeField] float portalWidth;
     [SerializeField] float portalHeight;
     [SerializeField] Image notConnectImg;
+
+    [SerializeField] LayerMask canTelefortLayerMask;
     private void Update()
     {
         SetCameraPositon();
@@ -124,7 +127,10 @@ public class Portal : MonoBehaviour
     //}
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
+        if (((1 << other.gameObject.layer) & canTelefortLayerMask) == 0)
+            return;
+
+        if (other.TryGetComponent<Cube>(out Cube cube) && cube.IsPickedUp)
             return;
 
         if (plane.GetDistanceToPoint(other.transform.position) >= 0)
@@ -226,7 +232,16 @@ public class Portal : MonoBehaviour
 
         other.transform.SetParent(null);
     }
-    public void LaserInput(Vector3 hitPoint,Vector3 startPosition)
+
+    public Vector3 LaserPosition(Vector3 hitPoint)
+    {
+        Vector3 localHitPoint = transform.InverseTransformPoint(hitPoint);
+
+        Vector3 newStartPosition = otherPotal.transform.TransformPoint(localHitPoint) + (otherPotal.transform.forward * 0.01f);
+
+        return localHitPoint;
+    }
+    public Vector3 LaserDirection(Vector3 hitPoint,Vector3 startPosition)
     {
         Vector3 laserDirection = hitPoint - startPosition;
         laserDirection = transform.InverseTransformDirection(laserDirection);
@@ -234,9 +249,7 @@ public class Portal : MonoBehaviour
 
         laserDirection = otherPotal.transform.TransformDirection(laserDirection);
 
-        Vector3 localHitPoint = transform.InverseTransformPoint(hitPoint);
-
-        Vector3 newStartPosition = otherPotal.transform.TransformPoint(localHitPoint) + (otherPotal.transform.forward * 0.01f);
+        return laserDirection;
     }
 
 

@@ -9,7 +9,11 @@ public class Cube : MonoBehaviour,IPickable
     public bool IsPickedUp => isPickedUp;
     Interaction interaction = null;
 
-
+    int curlayerInt;
+    private void Awake()
+    {
+        curlayerInt = gameObject.layer;
+    }
     public void Interact(Interaction player)
     {
         if (!isPickedUp)
@@ -23,7 +27,6 @@ public class Cube : MonoBehaviour,IPickable
         isPickedUp= true;
 
 
-        
         // 위치 조정
         // 부모오브젝트를 변경해주고 초기화 
         transform.SetParent(player.GetHoldTransform());
