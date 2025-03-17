@@ -82,7 +82,7 @@ public class PortalGun : MonoBehaviour
             return;
         if(context.performed)
         {
-            gunScript.ShootAnimation();
+            gunScript.ShootAnimation(true);
             if (canShotRedPortal)
             {
                 redWall?.SetMainCollider(true);
@@ -119,7 +119,7 @@ public class PortalGun : MonoBehaviour
 
         if (context.performed)
         {
-            gunScript.ShootAnimation();
+            gunScript.ShootAnimation(false);
 
             if (canShotBluePortal)
             {
