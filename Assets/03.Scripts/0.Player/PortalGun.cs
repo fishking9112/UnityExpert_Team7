@@ -48,7 +48,7 @@ public class PortalGun : MonoBehaviour
 
         canShotPortal = false;
 
-        //crossHair = UIManager.instance.crosshair;   
+        //crossHair = UIManager.instance.crosshair;
     }
     private void Update()
     {
