@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,7 +17,15 @@ public class PortalGun : MonoBehaviour
     BasePortalAble redWall;
     BasePortalAble blueWall;
 
+    [SerializeField] CrossHair crossHair;
+
+    public Ray ray;
+    RaycastHit hit;
+    BasePortalAble wall;
+
     bool canShotPortal;
+    bool canShotRedPortal;
+    bool canShotBluePortal;
 
     private void Awake()
     {
@@ -37,51 +46,90 @@ public class PortalGun : MonoBehaviour
         bluePortal.gameObject.SetActive(false);
 
         canShotPortal = false;
+
+        //crossHair = UIManager.instance.crosshair;   
     }
+    private void Update()
+    {
+        CheckPotalAble();
+        crossHair.CanShotRed(canShotRedPortal);
+        crossHair.CanShotBlue(canShotBluePortal);
+    }
+    void CheckPotalAble()
+    {
+        ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+        if (Physics.Raycast(ray, out hit, 2000f, canShotPotalLayerMask) && hit.transform.TryGetComponent<BasePortalAble>(out wall))
+        {
+            canShotRedPortal = wall != blueWall;
+            canShotBluePortal = wall != redWall;
+        }
+        else
+        {
+            canShotRedPortal = false;
+            canShotBluePortal = false;
+        }
+    }
+
     public void OnShotRedPortal(InputAction.CallbackContext context)
     {
         if (!canShotPortal)
             return;
-        if (context.performed)
+        if(context.performed && canShotRedPortal)
         {
-            Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
-
-            if (Physics.Raycast(ray, out RaycastHit hit, 2000f, canShotPotalLayerMask))
-            {
-                if (hit.transform.TryGetComponent<BasePortalAble>(out BasePortalAble wall) && wall != blueWall)
-                {
-                    redWall?.SetMainCollider(true);
-                    redWall = wall;
-                    redWall.SetMainCollider(false);
-                    Vector3 summonPos = redWall.SummonPortal(hit.point);
-                    redPortal.SummonPortal(summonPos, hit.normal);
-                }
-                //hit.point 에서 불꽃이펙트 실행
-            }
+            redWall?.SetMainCollider(true);
+            redWall = wall;
+            redWall.SetMainCollider(false);
+            Vector3 summonPos = redWall.SummonPortal(hit.point);
+            redPortal.SummonPortal(summonPos, hit.normal);
         }
-        
+
+
+        //if (context.performed)
+        //{
+        //    if (Physics.Raycast(ray, out RaycastHit hit, 2000f, canShotPotalLayerMask))
+        //    {
+        //        if (hit.transform.TryGetComponent<BasePortalAble>(out BasePortalAble wall) && wall != blueWall)
+        //        {
+        //            redWall?.SetMainCollider(true);
+        //            redWall = wall;
+        //            redWall.SetMainCollider(false);
+        //            Vector3 summonPos = redWall.SummonPortal(hit.point);
+        //            redPortal.SummonPortal(summonPos, hit.normal);
+        //        }
+        //        //hit.point 에서 불꽃이펙트 실행
+        //    }
+        //}
+
     }
     public void OnShotBluePortal(InputAction.CallbackContext context)
     {
         if (!canShotPortal)
             return;
-        if (context.performed)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 2000f, canShotPotalLayerMask))
-            {
-                if(hit.transform.TryGetComponent<BasePortalAble>(out BasePortalAble wall) && wall != redWall)
-                {
-                    blueWall?.SetMainCollider(true);
-                    blueWall = wall;
-                    blueWall.SetMainCollider(false);
-                    Vector3 summonPos = blueWall.SummonPortal(hit.point);
-                    bluePortal.SummonPortal(summonPos, hit.normal);
-                }
-                //hit.point 에서 불꽃이펙트 실행
-            }
+        if (context.performed && canShotBluePortal)
+        {
+            blueWall?.SetMainCollider(true);
+            blueWall = wall;
+            blueWall.SetMainCollider(false);
+            Vector3 summonPos = blueWall.SummonPortal(hit.point);
+            bluePortal.SummonPortal(summonPos, hit.normal);
         }
+
+        //if (context.performed)
+        //{
+        //    if (Physics.Raycast(ray, out RaycastHit hit, 2000f, canShotPotalLayerMask))
+        //    {
+        //        if(hit.transform.TryGetComponent<BasePortalAble>(out BasePortalAble wall) && wall != redWall)
+        //        {
+        //            blueWall?.SetMainCollider(true);
+        //            blueWall = wall;
+        //            blueWall.SetMainCollider(false);
+        //            Vector3 summonPos = blueWall.SummonPortal(hit.point);
+        //            bluePortal.SummonPortal(summonPos, hit.normal);
+        //        }
+        //        //hit.point 에서 불꽃이펙트 실행
+        //    }
+        //}
         
     }
 
