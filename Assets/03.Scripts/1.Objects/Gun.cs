@@ -7,6 +7,9 @@ public class Gun : MonoBehaviour, IPickable
 {
     private bool isPickedUp = false;
     public bool IsPickedUp => isPickedUp;
+    [SerializeField] Animator animator;
+
+
 
     public void Interact(Interaction player)
     {

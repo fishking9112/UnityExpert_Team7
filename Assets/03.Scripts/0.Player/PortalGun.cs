@@ -20,6 +20,7 @@ public class PortalGun : MonoBehaviour
     [SerializeField] CrossHair crossHair;
 
     public Ray ray;
+    Gun portalGun;
     RaycastHit hit;
     BasePortalAble wall;
 
@@ -55,6 +56,11 @@ public class PortalGun : MonoBehaviour
         crossHair.CanShotRed(canShotRedPortal);
         crossHair.CanShotBlue(canShotBluePortal);
     }
+    public void SetGun(Gun gun)
+    {
+        portalGun = gun;
+    }
+
     void CheckPotalAble()
     {
         ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
