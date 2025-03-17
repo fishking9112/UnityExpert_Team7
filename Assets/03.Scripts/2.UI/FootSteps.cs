@@ -5,16 +5,10 @@ public class FootSteps : MonoBehaviour
 {
     public AudioClip footstepClip;
     public float footstepRate = 0.5f;
-
-    private Rigidbody _rigidbody;
     private Vector3 _moveInput;
     private float _lastFootstepTime;
     public LayerMask groundLayer;
 
-    private void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
-    }
 
     private void Update()
     {
@@ -29,10 +23,6 @@ public class FootSteps : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        _rigidbody.MovePosition(_rigidbody.position + _moveInput * Time.fixedDeltaTime);
-    }
 
     private void PlayFootstepSound()
     {
