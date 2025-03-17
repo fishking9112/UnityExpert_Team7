@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayerMask;
     [SerializeField] Image pauseImg;
 
-    [SerializeField]bool _isLookable;
+    [SerializeField]bool _isPause;
     [SerializeField]bool _isJump;
     [SerializeField] bool _isGround;
 
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        _isLookable = true;
+        _isPause = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
     private void Update()
@@ -56,10 +56,11 @@ public class PlayerController : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (_isLookable)
+        if (!_isPause)
         {
             RotateLook();
         }
+        
     }
     public void OnLook(InputAction.CallbackContext context)
     {
@@ -123,9 +124,10 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            _isLookable = !_isLookable;
-            pauseImg.gameObject.SetActive(!_isLookable);
-            Cursor.lockState = _isLookable ? CursorLockMode.Locked : CursorLockMode.None;
+            Time.timeScale = _isPause ? 1f : 0f;
+            pauseImg.gameObject.SetActive(!_isPause);
+            Cursor.lockState = _isPause ? CursorLockMode.Locked : CursorLockMode.None;
+            _isPause = !_isPause;
         }
 
     }
