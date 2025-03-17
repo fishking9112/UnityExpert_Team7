@@ -16,6 +16,8 @@ public class Portal : MonoBehaviour
     [SerializeField] float portalWidth;
     [SerializeField] float portalHeight;
     [SerializeField] Image notConnectImg;
+
+    [SerializeField] LayerMask canTelefortLayerMask;
     private void Update()
     {
         SetCameraPositon();
@@ -125,7 +127,10 @@ public class Portal : MonoBehaviour
     //}
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
+        if (((1 << other.gameObject.layer) & canTelefortLayerMask) == 0)
+            return;
+
+        if (other.TryGetComponent<Cube>(out Cube cube) && cube.IsPickedUp)
             return;
 
         if (plane.GetDistanceToPoint(other.transform.position) >= 0)

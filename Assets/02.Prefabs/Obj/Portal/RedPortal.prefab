@@ -301,6 +301,9 @@ MonoBehaviour:
   portalWidth: 1.6
   portalHeight: 3
   notConnectImg: {fileID: 6679993985472983159}
+  canTelefortLayerMask:
+    serializedVersion: 2
+    m_Bits: 2568
 --- !u!65 &6694285770646091248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -320,8 +323,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6, y: 3, z: 0.8}
-  m_Center: {x: 0, y: 0, z: -0.2}
+  m_Size: {x: 1.6, y: 3, z: 1.6}
+  m_Center: {x: 0, y: 0, z: -0.6}
 --- !u!1 &2381502077545552161
 GameObject:
   m_ObjectHideFlags: 0
