@@ -478,33 +478,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2884854703313507170, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3694908017832773056, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3808373085773872550, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: crossHair
       value: 
       objectReference: {fileID: 860611616}
-    - target: {fileID: 6437964855181040017, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084084661952978337, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7248163525193199457, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952757354053131536, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-      propertyPath: m_Layer
-      value: 3
+    - target: {fileID: 3808373085773872550, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: canShotPotalLayerMask.m_Bits
+      value: 2368
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
