@@ -18,6 +18,9 @@ public class Portal : MonoBehaviour
     [SerializeField] Image notConnectImg;
 
     [SerializeField] LayerMask canTelefortLayerMask;
+
+    [SerializeField] Animator animator;
+
     private void Update()
     {
         SetCameraPositon();
@@ -87,6 +90,7 @@ public class Portal : MonoBehaviour
         this.gameObject.SetActive(true);
 
         IsConnected();
+        
 
         Vector3 forward = hitNormal;
         //Vector3 forward = isRedPortal ? hitNormal : -hitNormal;
@@ -114,6 +118,7 @@ public class Portal : MonoBehaviour
         GetComponent<Collider>().isTrigger = isPortalOpen;
         otherPotal.GetComponent<Collider>().isTrigger = isPortalOpen;
         //transform.rotation = Quaternion.Euler(isRedPortal? rotationX : -rotationX, rotationY, 0);
+        animator.SetTrigger("PortalOpen");
     }
     void IsConnected()
     {

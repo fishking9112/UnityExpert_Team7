@@ -270,7 +270,7 @@ MonoBehaviour:
   maxXLook: 85
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 2368
+    m_Bits: 2369
   pauseImg: {fileID: 0}
   _isLookable: 0
   _isJump: 0
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907247242908247876}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CameraContain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 177286585033448488}
   - component: {fileID: 3808373085773872550}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: holdTransfrom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4575800704079816742}
   - component: {fileID: 3539570544498379851}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: EquipCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 8138021748181536172}
   - component: {fileID: 3267395074018735005}
   - component: {fileID: 1478105956683146015}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 6067237673310843073}
   - component: {fileID: 9005782071072715149}
   - component: {fileID: 8927410834145801759}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 6163132855310160928}
   - component: {fileID: 2334305182018968051}
   - component: {fileID: 7544069913058811583}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

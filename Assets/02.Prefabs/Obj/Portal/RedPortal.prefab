@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5460993927607088337}
   - component: {fileID: 1701449204487696265}
   - component: {fileID: 7880210936175751198}
+  - component: {fileID: 3544508996853799010}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -103,6 +104,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &3544508996853799010
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203284988067658919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84bd5744053976c4f81b9e136266b525, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1482373809066452572
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +326,7 @@ MonoBehaviour:
   canTelefortLayerMask:
     serializedVersion: 2
     m_Bits: 2568
+  animator: {fileID: 3544508996853799010}
 --- !u!65 &6694285770646091248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -409,7 +432,7 @@ GameObject:
   - component: {fileID: 6612542414235236495}
   - component: {fileID: 8281326427530791665}
   m_Layer: 5
-  m_Name: Image
+  m_Name: RedPortalEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,7 +446,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3804203461265582950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.01}
+  m_LocalPosition: {x: 0, y: 0, z: 0.010000229}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
