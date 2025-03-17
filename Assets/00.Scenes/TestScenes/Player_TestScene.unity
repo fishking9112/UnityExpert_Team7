@@ -482,10 +482,6 @@ PrefabInstance:
       propertyPath: crossHair
       value: 
       objectReference: {fileID: 860611616}
-    - target: {fileID: 3808373085773872550, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
-      propertyPath: canShotPotalLayerMask.m_Bits
-      value: 2368
-      objectReference: {fileID: 0}
     - target: {fileID: 8441481252811430340, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: pauseImg
       value: 
@@ -872,18 +868,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3502347187986700562, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891045853386620762, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Player_TestScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 6919487625242583392, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7585201166960753512, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7667863251986408538, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
