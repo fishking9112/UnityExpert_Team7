@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class ChangeScene : MonoBehaviour
 {
     public RectTransform parentRectTransform;
-    public RectTransform childRectTransform; 
+    public RectTransform childRectTransform;
+    public RectTransform childRectTransform2;
     public Image transitionImage; 
     public float duration = 1.0f;
 
@@ -35,7 +36,8 @@ public class ChangeScene : MonoBehaviour
         {
             time += Time.deltaTime;
             float t = time / duration;
-            childRectTransform.sizeDelta = Vector2.Lerp(initialSize, targetSize*0.55f, t);
+            childRectTransform.sizeDelta = Vector2.Lerp(initialSize, targetSize * 0.55f, t);
+            childRectTransform2.sizeDelta = Vector2.Lerp(initialSize, targetSize * 0.55f, t);
             yield return null;
         }
 

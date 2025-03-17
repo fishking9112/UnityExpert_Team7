@@ -637,6 +637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRectTransform: {fileID: 7136056305334697760}
   childRectTransform: {fileID: 6941578630215463654}
+  childRectTransform2: {fileID: 7645393212934235374}
   transitionImage: {fileID: 6275641328568766876}
   duration: 1
 --- !u!1 &1597567844546352851
