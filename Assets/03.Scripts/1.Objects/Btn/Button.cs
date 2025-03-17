@@ -8,11 +8,18 @@ public class Button : MonoBehaviour, IPressable
     private bool isPressed = false;
     public bool IsPressed => isPressed;
 
-    [SerializeField]private UnityEvent onPress;
+    [SerializeField] private UnityEvent onPress;
     [SerializeField] private UnityEvent onRelease;
     public void Interact(Interaction player)
     {
-        Press(player);
+        if (gameObject.layer == 10)
+        {
+            return;
+        }
+        else
+        {
+            Press(player);
+        }
     }
 
 
@@ -37,7 +44,7 @@ public class Button : MonoBehaviour, IPressable
         // 버튼이 눌려져있지 않을때 상호작용 가능 
         return !isPressed;
     }
-    
+
 
     public string GetInteractionPrompt()
     {
