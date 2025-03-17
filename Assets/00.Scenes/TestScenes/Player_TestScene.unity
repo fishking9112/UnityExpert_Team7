@@ -425,10 +425,14 @@ PrefabInstance:
       propertyPath: crossHair
       value: 
       objectReference: {fileID: 860611616}
+    - target: {fileID: 3808373085773872550, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: canShotPotalLayerMask.m_Bits
+      value: 2368
+      objectReference: {fileID: 0}
     - target: {fileID: 8441481252811430340, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: pauseImg
       value: 
-      objectReference: {fileID: 860611617}
+      objectReference: {fileID: 1463364032}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -833,17 +837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be74ebd6c3a61bb42b455a10613d1304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &860611617 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7287401063019029808, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
-  m_PrefabInstance: {fileID: 860611615}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &876633471 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5403034976684376700, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
@@ -1215,6 +1208,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6710873744645763414, guid: 3995e8493b18d964ab90bee37bbdf7cb, type: 3}
   m_PrefabInstance: {fileID: 5487863913518038800}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1463364032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7287401063019029808, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
+  m_PrefabInstance: {fileID: 860611615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1485869475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}

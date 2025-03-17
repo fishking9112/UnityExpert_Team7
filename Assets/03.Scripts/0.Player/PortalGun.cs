@@ -48,7 +48,11 @@ public class PortalGun : MonoBehaviour
 
         canShotPortal = false;
 
-        //crossHair = UIManager.instance.crosshair;
+    }
+    private void Start()
+    {
+        //Find 하나만 할게요
+        crossHair = GameObject.Find("GameMenuCanvas").GetComponent<GameMenuController>().crossHair;
     }
     private void Update()
     {
@@ -82,7 +86,7 @@ public class PortalGun : MonoBehaviour
             return;
         if(context.performed)
         {
-            gunScript.ShootAnimation();
+            gunScript.ShootAnimation(true);
             if (canShotRedPortal)
             {
                 redWall?.SetMainCollider(true);
@@ -119,7 +123,7 @@ public class PortalGun : MonoBehaviour
 
         if (context.performed)
         {
-            gunScript.ShootAnimation();
+            gunScript.ShootAnimation(false);
 
             if (canShotBluePortal)
             {
