@@ -10,9 +10,9 @@ public class SoundManager : MonoBehaviour
 
     public Slider masterSlider, bgmSlider, sfxSlider;
 
-    private float masterVolume = 1f;
-    private float bgmVolume = 1f;
-    private float sfxVolume = 1f;
+    private float masterVolume;
+    private float bgmVolume;
+    private float sfxVolume;
 
     private void Awake()
     {
