@@ -9,13 +9,13 @@ public class Rayser_Main : MonoBehaviour
     public GameObject RayResult; // 충돌하느 위치에 촐력할 결과 임펙트
     private float maxDistance;
     private GameObject lastHitObj = null;
-    
+
     void Start()
     {
         maxDistance = 200f;
     }
 
-    
+
     void Update()
     {
         RaycastHit hit;
@@ -42,7 +42,7 @@ public class Rayser_Main : MonoBehaviour
             ScaleDistance.transform.localScale = new Vector3(0.1f, hit.distance, 0.1f);
 
 
-            
+
             //레이캐스트가 땋는곳에 오브젝트를 옮긴다.
             //RayResult.transform.position = hit.point;
 
@@ -57,6 +57,21 @@ public class Rayser_Main : MonoBehaviour
                 // hit.point 에서 ray를 다시 쏘기
                 hit.collider.GetComponent<Cube_Rayser>().ChkRayserLayser();
             }
+
+
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.yellow);
+            
+            Vector3 endPoint = transform.position + transform.forward * maxDistance;
+            Vector3 midPotnt = (transform.position + endPoint) / 2;
+            ScaleDistance.transform.position = midPotnt;
+            ScaleDistance.transform.localScale = new Vector3(0.1f, maxDistance, 0.1f);
+            // ScaleDistance의 회전을 Ray의 방향과 일치시킴
+            //ScaleDistance.transform.rotation = transform.rotation;
+
+
 
 
         }

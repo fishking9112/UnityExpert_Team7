@@ -54,6 +54,8 @@ public class Cube_Rayser : MonoBehaviour
         }
         else
         {
+            Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.yellow);
+            
             ScaleDistance.SetActive(false);
         }
 
