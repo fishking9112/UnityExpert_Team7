@@ -9,7 +9,10 @@ public class Gun : MonoBehaviour, IPickable
     public bool IsPickedUp => isPickedUp;
     [SerializeField] Animator animator;
 
-
+    public void ShootAnimation()
+    {
+        animator.SetTrigger("Shoot");
+    }
 
     public void Interact(Interaction player)
     {
@@ -23,7 +26,9 @@ public class Gun : MonoBehaviour, IPickable
     {
         isPickedUp = true;
 
-        player.GetComponentInChildren<PortalGun>().ActivatePortalGun(true);
+        PortalGun portalGun = player.GetComponentInChildren<PortalGun>();
+        portalGun.ActivatePortalGun(true);
+        portalGun.SetGun(this);
        
         Transform equipCamera = player.GetEquipCameraTransform();
         if (equipCamera != null)

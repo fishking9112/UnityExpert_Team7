@@ -20,7 +20,7 @@ public class PortalGun : MonoBehaviour
     [SerializeField] CrossHair crossHair;
 
     public Ray ray;
-    Gun portalGun;
+    Gun gunScript;
     RaycastHit hit;
     BasePortalAble wall;
 
@@ -58,7 +58,7 @@ public class PortalGun : MonoBehaviour
     }
     public void SetGun(Gun gun)
     {
-        portalGun = gun;
+        gunScript = gun;
     }
 
     void CheckPotalAble()
@@ -80,13 +80,18 @@ public class PortalGun : MonoBehaviour
     {
         if (!canShotPortal)
             return;
-        if(context.performed && canShotRedPortal)
+        if(context.performed)
         {
-            redWall?.SetMainCollider(true);
-            redWall = wall;
-            redWall.SetMainCollider(false);
-            Vector3 summonPos = redWall.SummonPortal(hit.point);
-            redPortal.SummonPortal(summonPos, hit.normal);
+            gunScript.ShootAnimation();
+            if (canShotRedPortal)
+            {
+                redWall?.SetMainCollider(true);
+                redWall = wall;
+                redWall.SetMainCollider(false);
+                Vector3 summonPos = redWall.SummonPortal(hit.point);
+                redPortal.SummonPortal(summonPos, hit.normal);
+            }
+            
         }
 
 
@@ -112,13 +117,19 @@ public class PortalGun : MonoBehaviour
         if (!canShotPortal)
             return;
 
-        if (context.performed && canShotBluePortal)
+        if (context.performed)
         {
-            blueWall?.SetMainCollider(true);
-            blueWall = wall;
-            blueWall.SetMainCollider(false);
-            Vector3 summonPos = blueWall.SummonPortal(hit.point);
-            bluePortal.SummonPortal(summonPos, hit.normal);
+            gunScript.ShootAnimation();
+
+            if (canShotBluePortal)
+            {
+                blueWall?.SetMainCollider(true);
+                blueWall = wall;
+                blueWall.SetMainCollider(false);
+                Vector3 summonPos = blueWall.SummonPortal(hit.point);
+                bluePortal.SummonPortal(summonPos, hit.normal);
+            }
+            
         }
 
         //if (context.performed)
