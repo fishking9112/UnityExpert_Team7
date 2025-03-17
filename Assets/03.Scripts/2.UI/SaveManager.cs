@@ -27,31 +27,19 @@ public class SaveManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(saveFilePath, json);
-
-        Debug.Log("저장됨: " + saveData.lastStage);
     }
 
     public void LoadLastStage()
     {
         if (File.Exists(saveFilePath))
         {
-            // JSON 파일 읽기
             string json = File.ReadAllText(saveFilePath);
             SaveData saveData = JsonUtility.FromJson<SaveData>(json);
 
             if (!string.IsNullOrEmpty(saveData.lastStage))
             {
                 SceneManager.LoadScene(saveData.lastStage);
-                Debug.Log("로드됨 " + saveData.lastStage);
             }
-            else
-            {
-                Debug.LogWarning("저장된 스테이지 없음");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("파일 없음");
         }
     }
 }

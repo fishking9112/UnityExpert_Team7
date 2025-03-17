@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8441481252811430340}
   cameraContainer: {fileID: 907247242908247876}
+  portalGun: {fileID: 0}
 --- !u!114 &8441481252811430340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,10 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4edd93def6f5fc4982f7e9b2a93647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footStepClips:
-  - {fileID: 8300000, guid: 263f8aaa01d5d0041b082b7b69d9ca02, type: 3}
-  footStepThreshold: 0.3
-  footStepRate: 0.5
+  footstepClip: {fileID: 8300000, guid: 263f8aaa01d5d0041b082b7b69d9ca02, type: 3}
+  footstepRate: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -488,9 +487,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShotPotalLayerMask:
     serializedVersion: 2
-    m_Bits: 2368
+    m_Bits: 2369
   redPortalPrefab: {fileID: 2171579203525894255, guid: f8ebc9fc1e226164a9a5f8172548ae14, type: 3}
   bluePortalPrefab: {fileID: 6644729409242311427, guid: bd47d8df2e543c0409da80a108250628, type: 3}
+  crossHair: {fileID: 0}
 --- !u!1 &6437964855181040017
 GameObject:
   m_ObjectHideFlags: 0
