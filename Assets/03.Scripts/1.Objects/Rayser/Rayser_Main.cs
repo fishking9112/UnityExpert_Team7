@@ -7,12 +7,14 @@ public class Rayser_Main : MonoBehaviour
     public GameObject Raybody; //레이저 쏘는 몸통
     public GameObject ScaleDistance; //거리에 따른 스케일 변화를 위한 오브젝트 대상
     public GameObject RayResult; // 충돌하느 위치에 촐력할 결과 임펙트
+    
     private float maxDistance;
     private GameObject lastHitObj = null;
 
     void Start()
     {
         maxDistance = 200f;
+        
     }
 
 
@@ -50,20 +52,38 @@ public class Rayser_Main : MonoBehaviour
             //RayResult.transform.rotation = Quaternion.LookRotation(hit.normal);
 
             //레이저 큐브와 충돌했을때 
-            if (layserIndex == LayerMask.NameToLayer("LayserCube"))
-            {
 
+            if (hit.collider.CompareTag("Portal"))
+            {
+                hit.collider.GetComponent<Rayser_Portal>().SetPortalPosition(hit.point);
+                hit.collider.GetComponent<Rayser_Portal>().SetPotalDirection(transform.position);
                 currentHitObj = hit.collider.gameObject;
-                // hit.point 에서 ray를 다시 쏘기
-                hit.collider.GetComponent<Cube_Rayser>().ChkRayserLayser();
+                //.SetPotalPosition(hit.collider.GetComponent<Portal>().LaserPosition(hit.transform.position));
+                //.SetPotalDirection(hit.collider.GetComponent<Portal>().LaserDirection(hit.transform.position, transform.position));
             }
+            else
+            {
+                if (layserIndex == LayerMask.NameToLayer("LayserCube"))
+                {
+                    currentHitObj = hit.collider.gameObject;
+                    // hit.point 에서 ray를 다시 쏘기
+                    hit.collider.GetComponent<Cube_Rayser>().ChkRayserLayser();
+                }
+
+
+                //hit.collider.GetComponent<Rayser_Portal>().SetPotalDirection(Vector3.zero);
+                //rayser_Portal.SetPotalPosition(Vector3.zero);
+                //rayser_Portal.SetPotalDirection(Vector3.zero);
+            }
+
+
 
 
         }
         else
         {
             Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.yellow);
-            
+
             Vector3 endPoint = transform.position + transform.forward * maxDistance;
             Vector3 midPotnt = (transform.position + endPoint) / 2;
             ScaleDistance.transform.position = midPotnt;
@@ -83,8 +103,14 @@ public class Rayser_Main : MonoBehaviour
             {
                 lastCubeRayser.ChkOutRayserLayser();
             }
+            Rayser_Portal  rayser_Portal= lastHitObj.GetComponent<Rayser_Portal>();
+            if (rayser_Portal !=null)
+            {
+                rayser_Portal.SetPotalDirectioninit();
+            }
 
         }
+        
 
 
         lastHitObj = currentHitObj;
