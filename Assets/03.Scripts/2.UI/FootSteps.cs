@@ -29,10 +29,10 @@ public class FootSteps : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        _rigidbody.MovePosition(_rigidbody.position + _moveInput * Time.fixedDeltaTime);
-    }
+    //private void FixedUpdate()
+    //{
+    //    _rigidbody.MovePosition(_rigidbody.position + _moveInput * Time.fixedDeltaTime);
+    //}
 
     private void PlayFootstepSound()
     {
