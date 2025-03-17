@@ -687,7 +687,6 @@ GameObject:
   - component: {fileID: 6386273601091557400}
   - component: {fileID: 8720398549776468720}
   - component: {fileID: 8112639153177894802}
-  - component: {fileID: 8797093724500730185}
   m_Layer: 5
   m_Name: QuitBtn
   m_TagString: Untagged
@@ -1487,6 +1486,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 411339033873572169}
     m_Modifications:
+    - target: {fileID: 1867038694543064091, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867038694543064091, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867038694543064091, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2687323647093083511, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1579,9 +1590,41 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1291053554}
+    - target: {fileID: 3700144217949133833, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700144217949133833, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5497802139313455170, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
       propertyPath: m_Name
       value: SoundMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497802139313455170, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013657828564721963, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013657828564721963, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770992081553092428, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770992081553092428, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770992081553092428, guid: c677f3bcc5a85bf41b7bcf7ff45606f8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1689,7 +1732,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 91, y: -93.60301}
+  m_AnchoredPosition: {x: 92.3, y: -93.60301}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7771399184185939498
@@ -1777,9 +1820,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8797093724500730185}
+      - m_Target: {fileID: 1825445781752217774}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
-        m_MethodName: ExitButton
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1835,19 +1878,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7175042859475428855}
   m_CullTransparentMesh: 1
---- !u!114 &8797093724500730185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825445781752217774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e84b7b813b1cc84f8688bc4d29ce79d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SettingBtn: {fileID: 0}
 --- !u!114 &8848044733430550443
 MonoBehaviour:
   m_ObjectHideFlags: 0
