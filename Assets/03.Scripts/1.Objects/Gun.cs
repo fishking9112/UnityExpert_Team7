@@ -9,9 +9,17 @@ public class Gun : MonoBehaviour, IPickable
     public bool IsPickedUp => isPickedUp;
     [SerializeField] Animator animator;
 
-    public void ShootAnimation()
+    public void ShootAnimation(bool isRed)
     {
-        animator.SetTrigger("Shoot");
+        if (isRed)
+        {
+            animator.SetTrigger("RedShoot");
+        }
+        else
+        {
+            animator.SetTrigger("BlueShoot");
+        }
+        
     }
 
     public void Interact(Interaction player)

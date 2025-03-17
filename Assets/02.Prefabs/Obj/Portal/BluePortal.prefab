@@ -315,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8499759218802883546}
   - component: {fileID: 8099223447600028461}
+  - component: {fileID: 7698806498754630484}
   - component: {fileID: 8472655069828779221}
   m_Layer: 0
   m_Name: BluePortal
@@ -354,7 +355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   otherPotal: {fileID: 0}
-  isRedPortal: 0
   portalCamera: {fileID: 2563958211919160797}
   portalWidth: 1.6
   portalHeight: 3
@@ -363,7 +363,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2568
   animator: {fileID: 3002936263183690240}
---- !u!65 &8472655069828779221
+  collider1: {fileID: 7698806498754630484}
+  collider2: {fileID: 8472655069828779221}
+--- !u!65 &7698806498754630484
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,6 +379,27 @@ BoxCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6, y: 3, z: 0.58}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &8472655069828779221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644729409242311427}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0

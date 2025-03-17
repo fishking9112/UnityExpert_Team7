@@ -11,7 +11,7 @@ public class Portal : MonoBehaviour
 
     [SerializeField] Portal otherPotal;
     Plane plane;
-    [SerializeField] bool isRedPortal;
+
     [SerializeField] Camera portalCamera;
     [SerializeField] float portalWidth;
     [SerializeField] float portalHeight;
@@ -20,6 +20,8 @@ public class Portal : MonoBehaviour
     [SerializeField] LayerMask canTelefortLayerMask;
 
     [SerializeField] Animator animator;
+    [SerializeField] Collider collider1;
+    [SerializeField] Collider collider2;
 
     private void Update()
     {
@@ -115,8 +117,10 @@ public class Portal : MonoBehaviour
         plane = new Plane(transform.forward, transform.position);
 
         bool isPortalOpen = otherPotal.gameObject.activeSelf;
-        GetComponent<Collider>().isTrigger = isPortalOpen;
-        otherPotal.GetComponent<Collider>().isTrigger = isPortalOpen;
+        collider1.isTrigger = isPortalOpen;
+        collider2.enabled = isPortalOpen;
+        otherPotal.collider1.isTrigger = isPortalOpen;
+        otherPotal.collider2.enabled = isPortalOpen;
         //transform.rotation = Quaternion.Euler(isRedPortal? rotationX : -rotationX, rotationY, 0);
         animator.SetTrigger("PortalOpen");
     }
