@@ -8,8 +8,20 @@ using UnityEngine.UI;
 /// </summary>
 public class ChangeScene : MonoBehaviour
 {
-    public Image transitionImage;
+    public RectTransform parentRectTransform;
+    public RectTransform childRectTransform;
+    public RectTransform childRectTransform2;
+    public Image transitionImage; 
     public float duration = 1.0f;
+
+    private Vector2 initialSize; 
+    private Vector2 targetSize;
+
+    private void Start()
+    {
+        targetSize = parentRectTransform.rect.size;
+        initialSize = childRectTransform.sizeDelta;
+    }
 
     public void ChangeImageScene(string sceneName)
     {
@@ -19,15 +31,16 @@ public class ChangeScene : MonoBehaviour
     private IEnumerator PlayTransition(string sceneName)
     {
         float time = 0f;
-        RectTransform rectTransform = transitionImage.GetComponent<RectTransform>();
 
         while (time < duration)
         {
             time += Time.deltaTime;
-            float scale = Mathf.Lerp(1f, 50f, time / duration);
-            rectTransform.localScale = new Vector3(scale, scale, 1f);
+            float t = time / duration;
+            childRectTransform.sizeDelta = Vector2.Lerp(initialSize, targetSize * 0.55f, t);
+            childRectTransform2.sizeDelta = Vector2.Lerp(initialSize, targetSize * 0.55f, t);
             yield return null;
         }
+
         SceneChange(sceneName);
     }
 

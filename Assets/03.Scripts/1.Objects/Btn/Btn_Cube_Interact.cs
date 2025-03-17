@@ -14,7 +14,7 @@ public class Btn_Cube_Interact : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Check_Press(collision, 1);
+         Check_Press(collision, 1);
 
     }
     private void OnCollisionExit(Collision collision)
@@ -24,7 +24,7 @@ public class Btn_Cube_Interact : MonoBehaviour
 
     private void Check_Press(Collision collision, int Pressednum)
     {
-        if (collision.gameObject.CompareTag("Cube"))
+        if (collision.gameObject.CompareTag("Cube") || collision.gameObject.CompareTag("Player"))
         {
             if (button != null)
             {
@@ -38,5 +38,6 @@ public class Btn_Cube_Interact : MonoBehaviour
                 }
             }
         }
+        
     }
 }

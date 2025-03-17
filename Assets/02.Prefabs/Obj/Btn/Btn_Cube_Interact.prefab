@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 1940369937826770124}
   - component: {fileID: 7615374411655574180}
   - component: {fileID: 5347598640694506731}
+  - component: {fileID: 4838891411361618927}
   m_Layer: 0
   m_Name: Btn_Cube_Interact
   m_TagString: Untagged
@@ -201,3 +202,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b9aa43269f2c845b2d4b993a5a98ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &4838891411361618927
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252112498099468257}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

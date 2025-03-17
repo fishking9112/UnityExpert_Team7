@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2123457506396776955, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8441481252811430340, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: pauseImg
       value: 
@@ -1106,6 +1110,14 @@ PrefabInstance:
     - target: {fileID: 1940369937826770124, guid: aefaf3c1c4438da42839943d16383a22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838891411361618927, guid: aefaf3c1c4438da42839943d16383a22, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838891411361618927, guid: aefaf3c1c4438da42839943d16383a22, type: 3}
+      propertyPath: m_Size.z
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8252112498099468257, guid: aefaf3c1c4438da42839943d16383a22, type: 3}
       propertyPath: m_Name
