@@ -20,6 +20,7 @@ public class PortalGun : MonoBehaviour
     [SerializeField] CrossHair crossHair;
 
     public Ray ray;
+    Gun gunScript;
     RaycastHit hit;
     BasePortalAble wall;
 
@@ -47,7 +48,7 @@ public class PortalGun : MonoBehaviour
 
         canShotPortal = false;
 
-        //crossHair = UIManager.instance.crosshair;   
+        //crossHair = UIManager.instance.crosshair;
     }
     private void Update()
     {
@@ -55,6 +56,11 @@ public class PortalGun : MonoBehaviour
         crossHair.CanShotRed(canShotRedPortal);
         crossHair.CanShotBlue(canShotBluePortal);
     }
+    public void SetGun(Gun gun)
+    {
+        gunScript = gun;
+    }
+
     void CheckPotalAble()
     {
         ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
@@ -74,13 +80,18 @@ public class PortalGun : MonoBehaviour
     {
         if (!canShotPortal)
             return;
-        if(context.performed && canShotRedPortal)
+        if(context.performed)
         {
-            redWall?.SetMainCollider(true);
-            redWall = wall;
-            redWall.SetMainCollider(false);
-            Vector3 summonPos = redWall.SummonPortal(hit.point);
-            redPortal.SummonPortal(summonPos, hit.normal);
+            gunScript.ShootAnimation();
+            if (canShotRedPortal)
+            {
+                redWall?.SetMainCollider(true);
+                redWall = wall;
+                redWall.SetMainCollider(false);
+                Vector3 summonPos = redWall.SummonPortal(hit.point);
+                redPortal.SummonPortal(summonPos, hit.normal);
+            }
+            
         }
 
 
@@ -106,13 +117,19 @@ public class PortalGun : MonoBehaviour
         if (!canShotPortal)
             return;
 
-        if (context.performed && canShotBluePortal)
+        if (context.performed)
         {
-            blueWall?.SetMainCollider(true);
-            blueWall = wall;
-            blueWall.SetMainCollider(false);
-            Vector3 summonPos = blueWall.SummonPortal(hit.point);
-            bluePortal.SummonPortal(summonPos, hit.normal);
+            gunScript.ShootAnimation();
+
+            if (canShotBluePortal)
+            {
+                blueWall?.SetMainCollider(true);
+                blueWall = wall;
+                blueWall.SetMainCollider(false);
+                Vector3 summonPos = blueWall.SummonPortal(hit.point);
+                bluePortal.SummonPortal(summonPos, hit.normal);
+            }
+            
         }
 
         //if (context.performed)
