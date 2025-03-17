@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour, IPickable
@@ -25,12 +26,13 @@ public class Gun : MonoBehaviour, IPickable
         if (equipCamera != null)
         {
             transform.SetParent(equipCamera); // 부모의위치 = equipCamera
-            transform.localPosition = new Vector3(1f, -0.94f, 1.9f); //equipcamera에서 총이 보이는 위치
+            transform.localPosition = new Vector3(0.75f, -0.5f, 1.25f); //equipcamera에서 총이 보이는 위치
             transform.localRotation = Quaternion.Euler(8f, 270f, 0); //회전초기화(총을 발로차서 누워있는걸 들면 서있는상태로 바뀜)
             transform.localScale = new Vector3(20, 20, 20);
-            GetComponent<Rigidbody>().isKinematic = true; //물리영향 안받기
+            Destroy(GetComponent<Rigidbody>());
+            Destroy(GetComponent<Collider>());
         }
-
+        
         player.SetHeldObject(this);
         Debug.Log("PortalGun 장착됨!");
     }
