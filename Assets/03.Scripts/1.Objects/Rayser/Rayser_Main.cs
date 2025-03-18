@@ -27,7 +27,7 @@ public class Rayser_Main : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
         {
             int layserIndex = hit.collider.gameObject.layer;
-            Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.yellow);
+           // Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.yellow);
             //Debug.Log("Hit object layer: " + layerName + " (index: " + layserIndex + ")");
 
             // 시작 지점과 히트 지점 사이의 중간 위치 계산
@@ -83,7 +83,7 @@ public class Rayser_Main : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.yellow);
+            //Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.yellow);
 
             Vector3 endPoint = transform.position + transform.forward * maxDistance;
             Vector3 midPotnt = (transform.position + endPoint) / 2;
