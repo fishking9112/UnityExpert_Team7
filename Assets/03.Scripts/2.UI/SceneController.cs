@@ -25,4 +25,11 @@ public class SceneController : MonoBehaviour
     {
         SaveCurrentScene();
     }
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            SaveCurrentScene();
+        }
+    }
 }
