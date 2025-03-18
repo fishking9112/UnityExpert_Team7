@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8441481252811430340}
   cameraContainer: {fileID: 907247242908247876}
-  portalGun: {fileID: 0}
+  portalGun: {fileID: 3808373085773872550}
 --- !u!114 &8441481252811430340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +467,7 @@ Transform:
   m_GameObject: {fileID: 3694908017832773056}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 2}
+  m_LocalPosition: {x: 0, y: -0.2, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

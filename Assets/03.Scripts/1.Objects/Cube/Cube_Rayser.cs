@@ -38,7 +38,7 @@ public class Cube_Rayser : MonoBehaviour
                 if (layserIndex == LayerMask.NameToLayer("LayserBtn"))
                 {
                     currentHitObj = hit.collider.gameObject;
-                    hit.collider.GetComponent<Button>().ChkedPress();
+                    hit.collider.GetComponent<ButtonObj>().ChkedPress();
                 }
                 else if (hit.collider.CompareTag("Portal"))
                 {
@@ -50,7 +50,7 @@ public class Cube_Rayser : MonoBehaviour
 
             if (lastHitObj != null && lastHitObj != currentHitObj)
             {
-                Button lastbtnRayser = lastHitObj.GetComponent<Button>();
+                ButtonObj lastbtnRayser = lastHitObj.GetComponent<ButtonObj>();
                 if (lastbtnRayser != null)
                 {
                     lastbtnRayser.ChkOutPress();
@@ -67,7 +67,7 @@ public class Cube_Rayser : MonoBehaviour
             //여기부분에서 문제가 생기는거네 ? 검사를안하니까 ? 
             if (lastHitObj != null)
             {
-                Button lastbtnRayser = lastHitObj.GetComponent<Button>();
+                ButtonObj lastbtnRayser = lastHitObj.GetComponent<ButtonObj>();
                 if (lastbtnRayser != null)
                 {
                     lastbtnRayser.ChkOutPress();

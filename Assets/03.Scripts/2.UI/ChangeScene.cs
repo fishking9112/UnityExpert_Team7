@@ -46,6 +46,7 @@ public class ChangeScene : MonoBehaviour
 
     public void SceneChange(string sceneName)
     {
+        Debug.Log("SceneChange : " + sceneName);
         SceneManager.LoadScene(sceneName);
     }
 

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Button : MonoBehaviour, IPressable
+public class ButtonObj : MonoBehaviour, IPressable
 {
     private bool isPressed = false;
     public bool IsPressed => isPressed;

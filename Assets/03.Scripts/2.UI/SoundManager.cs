@@ -14,8 +14,6 @@ public class SoundManager : MonoBehaviour
     private float bgmVolume = 1f;
     private float sfxVolume = 1f;
 
-    [SerializeField] private SoundMenuController soundMenuController;
-
     private void Awake()
     {
         if (instance == null)
@@ -32,13 +30,12 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        GetSoundMenuController();
+        if(masterSlider != null && bgmSlider !=null && sfxSlider != null)
+        {
+            LoadVolumeSettings();
+        }
 
-        LoadVolumeSettings();
-
-        masterSlider.onValueChanged.AddListener(SetMasterVolume);
-        bgmSlider.onValueChanged.AddListener(SetBGMVolume);
-        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        
     }
 
     public void SetMasterVolume(float volume)
@@ -62,7 +59,7 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
-    private void LoadVolumeSettings()
+    public void LoadVolumeSettings()
     {
         masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
         bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
@@ -73,6 +70,10 @@ public class SoundManager : MonoBehaviour
         sfxSlider.value = sfxVolume;
 
         UpdateVolume();
+
+        masterSlider.onValueChanged.AddListener(SetMasterVolume);
+        bgmSlider.onValueChanged.AddListener(SetBGMVolume);
+        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
     private void UpdateVolume()
@@ -93,15 +94,5 @@ public class SoundManager : MonoBehaviour
         {
             sfxSources[0].PlayOneShot(clip, volume * sfxVolume * masterVolume);
         }
-    }
-
-    private void GetSoundMenuController()
-    {
-        soundMenuController = GameObject.Find("GameMenuCanvas").GetComponentInChildren<SoundMenuController>(true);
-
-
-        masterSlider = soundMenuController.masterSlider;
-        bgmSlider = soundMenuController.bgmSlider;
-        sfxSlider = soundMenuController.sfxSlider;
     }
 }
