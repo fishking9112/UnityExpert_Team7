@@ -921,19 +921,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1731603656}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1731603654}
-        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
-        m_MethodName: ChangeImageScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: UI_TestScene_1
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1731603656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,19 +1023,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4996807369499041963}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2281676094466064259}
-        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
-        m_MethodName: PauseButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &842493810308714324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,19 +1216,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7200838270778005574}
   m_CullTransparentMesh: 1
---- !u!114 &2281676094466064259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5585169963570328561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e84b7b813b1cc84f8688bc4d29ce79d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SettingBtn: {fileID: 0}
 --- !u!1 &2540009344329616269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,19 +1580,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3955210218203915893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6170914292346816402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e84b7b813b1cc84f8688bc4d29ce79d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SettingBtn: {fileID: 0}
 --- !u!114 &4031467053431070070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,19 +1645,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3887487022145146316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3955210218203915893}
-        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
-        m_MethodName: ExitButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &4911159609664417652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1865,7 +1803,6 @@ GameObject:
   - component: {fileID: 5191217425224507649}
   - component: {fileID: 4996807369499041963}
   - component: {fileID: 242219078859592719}
-  - component: {fileID: 2281676094466064259}
   m_Layer: 5
   m_Name: SettingBtn
   m_TagString: Untagged
@@ -1964,19 +1901,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2093144043165320906}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6706841615295508832}
-        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
-        m_MethodName: ChangeImageScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: UI_TestScene_1
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6123470198960130910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,7 +1932,6 @@ GameObject:
   - component: {fileID: 1465550730355105572}
   - component: {fileID: 3887487022145146316}
   - component: {fileID: 4351557841073281198}
-  - component: {fileID: 3955210218203915893}
   m_Layer: 5
   m_Name: QuitBtn
   m_TagString: Untagged
@@ -2335,7 +2259,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842493810308714324}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88456b9777a13a14c9b8976ccc78304a, type: 3}
   m_Name: 

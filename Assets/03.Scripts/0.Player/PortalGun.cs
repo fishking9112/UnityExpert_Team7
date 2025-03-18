@@ -29,6 +29,7 @@ public class PortalGun : MonoBehaviour
     bool canShotRedPortal;
     bool canShotBluePortal;
 
+    bool isPause;
     private void Awake()
     {
         if(redPortal == null)
@@ -83,7 +84,7 @@ public class PortalGun : MonoBehaviour
 
     public void OnShotRedPortal(InputAction.CallbackContext context)
     {
-        if (!canShotPortal)
+        if (!canShotPortal || isPause)
             return;
         if(context.performed)
         {
@@ -124,7 +125,7 @@ public class PortalGun : MonoBehaviour
     }
     public void OnShotBluePortal(InputAction.CallbackContext context)
     {
-        if (!canShotPortal)
+        if (!canShotPortal || isPause)
             return;
 
         if (context.performed)
@@ -164,7 +165,10 @@ public class PortalGun : MonoBehaviour
         //}
         
     }
-
+    public void SetPause(bool value)
+    {
+        isPause = value;
+    }
     public void ActivatePortalGun(bool value)
     {
          canShotPortal = value;
