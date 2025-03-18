@@ -27,7 +27,7 @@ public class Cube_Rayser : MonoBehaviour
                 int layserIndex = hit.collider.gameObject.layer;
                 string layerName = LayerMask.LayerToName(layserIndex);
                 //Debug.Log("Hit object layer: " + layerName + " (index: " + layserIndex + ")");
-                Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.yellow);
+                //Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.yellow);
 
                 Vector3 middlePosition = transform.position + (hit.point - transform.position) / 2;
 
@@ -61,7 +61,7 @@ public class Cube_Rayser : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.yellow);
+            //Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.yellow);
 
             ScaleDistance.SetActive(false);
             //여기부분에서 문제가 생기는거네 ? 검사를안하니까 ? 
