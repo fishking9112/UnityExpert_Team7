@@ -3,33 +3,56 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    private const string LastSceneKey = "LastPlayedScene";
+    public static SceneController instance;
 
-    public void SaveCurrentScene()
+    private void Awake()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
-        PlayerPrefs.SetString(LastSceneKey, currentScene);
-        PlayerPrefs.Save();
-    }
-
-    public void LoadLastScene()
-    {
-        if (PlayerPrefs.HasKey(LastSceneKey))
+        if (instance == null)
         {
-            string lastScene = PlayerPrefs.GetString(LastSceneKey);
-            SceneManager.LoadScene(lastScene);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
-    private void OnApplicationQuit()
+    public void LoadTitleScene()
     {
-        SaveCurrentScene();
+
     }
-    private void OnApplicationPause(bool pause)
-    {
-        if (pause)
-        {
-            SaveCurrentScene();
-        }
-    }
+
+
+
+
+    //private const string LastSceneKey = "LastPlayedScene";
+
+    //public void SaveCurrentScene()
+    //{
+    //    string currentScene = SceneManager.GetActiveScene().name;
+    //    PlayerPrefs.SetString(LastSceneKey, currentScene);
+    //    PlayerPrefs.Save();
+    //}
+
+    //public void LoadLastScene()
+    //{
+    //    if (PlayerPrefs.HasKey(LastSceneKey))
+    //    {
+    //        string lastScene = PlayerPrefs.GetString(LastSceneKey);
+    //        SceneManager.LoadScene(lastScene);
+    //    }
+    //}
+
+    //private void OnApplicationQuit()
+    //{
+    //    SaveCurrentScene();
+    //}
+    //private void OnApplicationPause(bool pause)
+    //{
+    //    if (pause)
+    //    {
+    //        SaveCurrentScene();
+    //    }
+    //}
 }

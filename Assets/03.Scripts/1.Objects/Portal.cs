@@ -213,6 +213,8 @@ public class Portal : MonoBehaviour
         //other.transform.position = otherPotal.transform.position + enterPosition + ((isRedPortal ? -otherPotal.transform.forward : otherPotal.transform.forward) * 0.1f);
         */
     }
+
+
     //private void OnTriggerExit(Collider other)
     //{
     //    other.transform.SetParent (null);
