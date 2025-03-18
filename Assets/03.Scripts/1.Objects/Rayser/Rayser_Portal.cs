@@ -60,12 +60,12 @@ public class Rayser_Portal : MonoBehaviour
                 else if (index_layer == LayerMask.NameToLayer("LayserBtn"))
                 {
                     currentHitObj = hit.collider.gameObject;
-                    hit.collider.GetComponent<Button>().ChkedPress();
+                    hit.collider.GetComponent<ButtonObj>().ChkedPress();
                 }
 
                 if (lastHitObj != null && lastHitObj != currentHitObj)
                 {
-                    Button lastbtnRayser = lastHitObj.GetComponent<Button>();
+                    ButtonObj lastbtnRayser = lastHitObj.GetComponent<ButtonObj>();
                     if (lastbtnRayser != null)
                     {
                         lastbtnRayser.ChkOutPress();

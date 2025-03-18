@@ -13,10 +13,22 @@ public class SaveData
 
 public class SaveManager : MonoBehaviour
 {
+    public static SaveManager instance;
+
+
     private string saveFilePath;
 
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         saveFilePath = Path.Combine(Application.persistentDataPath, "saveData.json");
     }
 

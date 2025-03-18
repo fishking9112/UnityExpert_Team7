@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Btn_Cube_Interact : MonoBehaviour
 {
-    private Button button;
+    private ButtonObj button;
 
 
     private void Start()
     {
-        button = GetComponent<Button>();
+        button = GetComponent<ButtonObj>();
     }
 
     private void OnCollisionEnter(Collision collision)
