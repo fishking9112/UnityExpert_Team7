@@ -51,7 +51,7 @@ public class Button : MonoBehaviour, IPressable
         return "누르기";
     }
 
-    public void ChkedPress()
+    public virtual void ChkedPress()
     {
         isPressed = true;
     }

@@ -38,10 +38,11 @@ public class Rayser_Portal : MonoBehaviour
 
             ScaleDistance.SetActive(true);
             //if (Physics.Raycast(newPortalPosition, newPortalDirection, out hit, maxDistance))
-            if (Physics.Raycast(newPortalPosition, newPortalDirection, out hit, maxDistance))
+            if (Physics.Raycast(newPortalPosition, transform.forward, out hit, maxDistance))
             {
                 int index_layer = hit.collider.gameObject.layer;
-                Debug.DrawRay(newPortalPosition, newPortalDirection * hit.distance, Color.yellow);
+                //Debug.DrawRay(newPortalPosition, newPortalDirection * hit.distance, Color.yellow);
+                Debug.DrawRay(newPortalPosition, transform.forward * hit.distance, Color.yellow);
 
                 Vector3 middlePosition = newPortalPosition + (hit.point - newPortalPosition) / 2;
                 ScaleDistance.transform.position = middlePosition;
