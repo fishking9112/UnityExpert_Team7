@@ -39,7 +39,7 @@ public class Rayser_Main : MonoBehaviour
 
             // 레이저가 히트 지점을 향하도록 회전
             //ScaleDistance.transform.LookAt(hit.point);
-
+            //ScaleDistance.transform.localEulerAngles +=new Vector3(-90f, 0f, 0f);
             //레이캐스트가 땋는곳에 오브젝트를 옮긴다.
             //RayResult.transform.position = hit.point;
 

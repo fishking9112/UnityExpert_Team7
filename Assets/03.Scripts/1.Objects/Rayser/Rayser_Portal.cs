@@ -40,11 +40,15 @@ public class Rayser_Portal : MonoBehaviour
             if (Physics.Raycast(newPortalPosition, newPortalDirection, out hit, maxDistance))
             {
                 int index_layer = hit.collider.gameObject.layer;
-                Debug.DrawRay(newPortalPosition, transform.forward * hit.distance, Color.yellow);
+                Debug.DrawRay(newPortalPosition, newPortalDirection * hit.distance, Color.yellow);
 
                 Vector3 middlePosition = newPortalPosition + (hit.point - newPortalPosition) / 2;
                 ScaleDistance.transform.position = middlePosition;
                 ScaleDistance.transform.localScale = new Vector3(0.1f, hit.distance, 0.1f);
+
+                // 레이저가 히트 지점을 향하도록 회전
+                ScaleDistance.transform.LookAt(hit.point);
+                ScaleDistance.transform.localEulerAngles += new Vector3(-90f, 0f, 0f);
 
                 if (index_layer == LayerMask.NameToLayer("LayserCube"))
                 {
@@ -60,6 +64,9 @@ public class Rayser_Portal : MonoBehaviour
                 Vector3 midPotnt = (newPortalPosition + endPoint) / 2;
                 ScaleDistance.transform.position = midPotnt;
                 ScaleDistance.transform.localScale = new Vector3(0.1f, maxDistance, 0.1f);
+                // 레이저가 히트 지점을 향하도록 회전
+                //ScaleDistance.transform.LookAt(hit.point);
+                //ScaleDistance.transform.localEulerAngles += new Vector3(-90f, 0f, 0f);
             }
         }
         else
