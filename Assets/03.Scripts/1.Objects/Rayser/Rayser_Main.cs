@@ -39,7 +39,7 @@ public class Rayser_Main : MonoBehaviour
 
             // 레이저가 히트 지점을 향하도록 회전
             //ScaleDistance.transform.LookAt(hit.point);
-
+            //ScaleDistance.transform.localEulerAngles +=new Vector3(-90f, 0f, 0f);
             //레이캐스트가 땋는곳에 오브젝트를 옮긴다.
             //RayResult.transform.position = hit.point;
 
@@ -63,9 +63,21 @@ public class Rayser_Main : MonoBehaviour
                     // hit.point 에서 ray를 다시 쏘기
                     hit.collider.GetComponent<Cube_Rayser>().ChkRayserLayser();
                 }
+                else if (layserIndex == LayerMask.NameToLayer("LayserBtn"))
+                {
+                    currentHitObj = hit.collider.gameObject;
+                    hit.collider.GetComponent<Button>().ChkedPress();
+                }
             }
 
-
+            if (lastHitObj != null && lastHitObj != currentHitObj)
+            {
+                Button lastbtnRayser = lastHitObj.GetComponent<Button>();
+                if (lastbtnRayser != null)
+                {
+                    lastbtnRayser.ChkOutPress();
+                }
+            }
 
 
         }
