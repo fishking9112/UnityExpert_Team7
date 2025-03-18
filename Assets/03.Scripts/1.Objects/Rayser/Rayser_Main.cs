@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rayser_Main : MonoBehaviour
 {
-    public GameObject Raybody; //레이저 쏘는 몸통
+    //public GameObject Raybody; //레이저 쏘는 몸통
     public GameObject ScaleDistance; //거리에 따른 스케일 변화를 위한 오브젝트 대상
-    public GameObject RayResult; // 충돌하느 위치에 촐력할 결과 임펙트
+    //public GameObject RayResult; // 충돌하느 위치에 촐력할 결과 임펙트
     
     private float maxDistance;
     private GameObject lastHitObj = null;

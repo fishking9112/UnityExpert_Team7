@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cube_Rayser : MonoBehaviour
 {
-    public GameObject Raybody;
+    //public GameObject Raybody;
     public GameObject ScaleDistance;
-    public GameObject RayResult;
+    //public GameObject RayResult;
 
 
     private bool ChkRayser = false;
