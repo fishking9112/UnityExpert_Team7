@@ -1645,6 +1645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rayser
       objectReference: {fileID: 0}
+    - target: {fileID: 6491829086537615366, guid: 335bc0bcf54f8714c87d716f63e94c22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4281521062150849901, guid: 335bc0bcf54f8714c87d716f63e94c22, type: 3}

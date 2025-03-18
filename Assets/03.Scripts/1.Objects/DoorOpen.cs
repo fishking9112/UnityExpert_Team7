@@ -27,8 +27,6 @@ public class DoorOpen : MonoBehaviour
     private float currentLerpTime = 0f;
     private float lerpDuration = 1f; // 문이 완전히 열리거나 닫히는 데 걸리는 시간
 
-    
-
     private void Awake()
     {
         //위치 초기화 
@@ -66,6 +64,10 @@ public class DoorOpen : MonoBehaviour
                 opent = Mathf.Clamp01(opent); // t 값을 0~1 사이로 제한
 
                 Door.transform.position = Vector3.Lerp(StartPosition, targetPosiotion, opent);
+                if(opent >= 0.5f)
+                {
+
+                }
 
                 if (opent >= 1.0f)
                 {
