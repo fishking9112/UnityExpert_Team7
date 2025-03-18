@@ -27,23 +27,18 @@ public class Rayser_Main : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
         {
             int layserIndex = hit.collider.gameObject.layer;
-            string layerName = LayerMask.LayerToName(layserIndex);
+            Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.yellow);
             //Debug.Log("Hit object layer: " + layerName + " (index: " + layserIndex + ")");
 
             // 시작 지점과 히트 지점 사이의 중간 위치 계산
             Vector3 middlePosition = transform.position + (hit.point - transform.position) / 2;
             //레이저를 중간위치에 설정(우리의 sprite는 한쪽방향이 아닌 양쪽으로 증가하기 때문)
             ScaleDistance.transform.position = middlePosition;
-
-            Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.yellow);
-
-            // 레이저가 히트 지점을 향하도록 회전
-            //ScaleDistance.transform.LookAt(hit.point);
-
             //거리에 따른 레이저 스케일변화 
             ScaleDistance.transform.localScale = new Vector3(0.1f, hit.distance, 0.1f);
 
-
+            // 레이저가 히트 지점을 향하도록 회전
+            //ScaleDistance.transform.LookAt(hit.point);
 
             //레이캐스트가 땋는곳에 오브젝트를 옮긴다.
             //RayResult.transform.position = hit.point;
@@ -58,8 +53,7 @@ public class Rayser_Main : MonoBehaviour
                 hit.collider.GetComponent<Rayser_Portal>().SetPortalPosition(hit.point);
                 hit.collider.GetComponent<Rayser_Portal>().SetPotalDirection(transform.position);
                 currentHitObj = hit.collider.gameObject;
-                //.SetPotalPosition(hit.collider.GetComponent<Portal>().LaserPosition(hit.transform.position));
-                //.SetPotalDirection(hit.collider.GetComponent<Portal>().LaserDirection(hit.transform.position, transform.position));
+                
             }
             else
             {
@@ -69,11 +63,6 @@ public class Rayser_Main : MonoBehaviour
                     // hit.point 에서 ray를 다시 쏘기
                     hit.collider.GetComponent<Cube_Rayser>().ChkRayserLayser();
                 }
-
-
-                //hit.collider.GetComponent<Rayser_Portal>().SetPotalDirection(Vector3.zero);
-                //rayser_Portal.SetPotalPosition(Vector3.zero);
-                //rayser_Portal.SetPotalDirection(Vector3.zero);
             }
 
 

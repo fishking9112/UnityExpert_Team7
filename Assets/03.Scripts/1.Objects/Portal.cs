@@ -36,9 +36,9 @@ public class Portal : MonoBehaviour
         localPos.x = -localPos.x;
         portalCamera.transform.localPosition = localPos;
         CameraProjectionUpdate();
-        Vector3 lookPoint = transform.position + (0.01f *transform.forward);
-        portalCamera.transform.localRotation =Quaternion.identity;
-        
+        Vector3 lookPoint = transform.position + (0.01f * transform.forward);
+        portalCamera.transform.localRotation = Quaternion.identity;
+
         //portalCamera.transform.localRotation = FindLookRotate(-portalCamera.transform.localPosition,transform.up);
         //portalCamera.transform.LookAt(lookPoint);
     }
@@ -50,7 +50,7 @@ public class Portal : MonoBehaviour
 
     //    return Quaternion.LookRotation(forward, up);
     //}
-    
+
 
 
     void CameraProjectionUpdate()
@@ -84,8 +84,8 @@ public class Portal : MonoBehaviour
     {
         otherPotal = Potal;
     }
-    
-    
+
+
     public void SummonPortal(Vector3 hitPoint, Vector3 hitNormal)
     {
 
@@ -93,7 +93,7 @@ public class Portal : MonoBehaviour
         this.gameObject.SetActive(true);
 
         IsConnected();
-        
+
 
         Vector3 forward = hitNormal;
         //Vector3 forward = isRedPortal ? hitNormal : -hitNormal;
@@ -101,7 +101,7 @@ public class Portal : MonoBehaviour
         Vector3 up = Vector3.Cross(forward, right);
 
         transform.rotation = Quaternion.LookRotation(forward, up);
-        
+
 
         //Vector3 forward = isRedPortal? hitNormal : -hitNormal;
         //Vector3 right = Vector3.Cross(Vector3.up, forward);
@@ -145,15 +145,15 @@ public class Portal : MonoBehaviour
 
         if (plane.GetDistanceToPoint(other.transform.position) >= 0)
             return;
-        
+
         other.transform.SetParent(transform);
-        other.transform.SetParent(otherPotal.transform,false);
+        other.transform.SetParent(otherPotal.transform, false);
         Vector3 localPos = other.transform.localPosition;
         other.transform.localPosition = new Vector3(-localPos.x, localPos.y, -localPos.z);
 
 
         Vector3 localEuler = other.transform.localRotation.eulerAngles;
-        localEuler.y = localEuler.y+180f;
+        localEuler.y = localEuler.y + 180f;
         other.transform.localRotation = Quaternion.Euler(localEuler);
 
 
@@ -248,10 +248,15 @@ public class Portal : MonoBehaviour
     {
         Vector3 localHitPoint = transform.InverseTransformPoint(hitPoint);
 
+        if (!otherPotal.gameObject.activeInHierarchy)
+        {
+            return Vector3.zero;
+        }
         Vector3 newStartPosition = otherPotal.transform.TransformPoint(localHitPoint) + (otherPotal.transform.forward * 0.01f);
         newStartPosition = new Vector3(-newStartPosition.x,newStartPosition.y,newStartPosition.z);
 
         return newStartPosition;
+
     }
     public Vector3 LaserNormalPosition(Vector3 hitPoint)
     {
@@ -261,7 +266,7 @@ public class Portal : MonoBehaviour
     {
         Vector3 laserDirection = hitPoint - startPosition;
         laserDirection = transform.InverseTransformDirection(laserDirection);
-        laserDirection = new Vector3(-laserDirection.x,laserDirection.y,-laserDirection.z);
+        laserDirection = new Vector3(-laserDirection.x, laserDirection.y, -laserDirection.z);
 
         laserDirection = otherPotal.transform.TransformDirection(laserDirection);
 
