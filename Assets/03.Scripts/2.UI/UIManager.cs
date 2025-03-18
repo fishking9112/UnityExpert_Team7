@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// UI Manager 에서 다른 Prefab에 연결 될 UI들을 알고있다가 , 전달 해준다.
+/// 안쓸거에요 삭제 예정 !!
 /// </summary>
 
 public class UIManager : MonoBehaviour
