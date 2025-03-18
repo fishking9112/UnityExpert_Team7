@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8441481252811430340}
   cameraContainer: {fileID: 907247242908247876}
-  portalGun: {fileID: 0}
+  portalGun: {fileID: 3808373085773872550}
 --- !u!114 &8441481252811430340
 MonoBehaviour:
   m_ObjectHideFlags: 0

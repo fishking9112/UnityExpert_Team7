@@ -26,6 +26,7 @@ public class TitleMenu : MonoBehaviour
         SoundManager.instance.masterSlider = masterVolumSlider;
         SoundManager.instance.bgmSlider = bgmVolumSlider;
         SoundManager.instance.sfxSlider = sfxVolumSlider;
+        SoundManager.instance.LoadVolumeSettings();
 
         IsAbleContinuBtn(GameManager.Instance.lastStage > 1);
 

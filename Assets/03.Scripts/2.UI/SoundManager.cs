@@ -30,11 +30,12 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        LoadVolumeSettings();
+        if(masterSlider != null && bgmSlider !=null && sfxSlider != null)
+        {
+            LoadVolumeSettings();
+        }
 
-        masterSlider.onValueChanged.AddListener(SetMasterVolume);
-        bgmSlider.onValueChanged.AddListener(SetBGMVolume);
-        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        
     }
 
     public void SetMasterVolume(float volume)
@@ -58,7 +59,7 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
-    private void LoadVolumeSettings()
+    public void LoadVolumeSettings()
     {
         masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
         bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
@@ -69,6 +70,10 @@ public class SoundManager : MonoBehaviour
         sfxSlider.value = sfxVolume;
 
         UpdateVolume();
+
+        masterSlider.onValueChanged.AddListener(SetMasterVolume);
+        bgmSlider.onValueChanged.AddListener(SetBGMVolume);
+        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
     private void UpdateVolume()

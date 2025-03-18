@@ -917,7 +917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &855699721484320007
 GameObject:
   m_ObjectHideFlags: 0
@@ -4188,7 +4188,7 @@ MonoBehaviour:
   continueBtn: {fileID: 1731603655}
   endBtn: {fileID: 4351557841073281198}
   settingBtn: {fileID: 242219078859592719}
-  closeSetting: {fileID: 0}
+  closeSetting: {fileID: 3300794091967378605}
   masterVolumSlider: {fileID: 4398206809249691848}
   bgmVolumSlider: {fileID: 2401262594381605566}
   sfxVolumSlider: {fileID: 4251738902176655569}

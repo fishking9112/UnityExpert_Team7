@@ -17,7 +17,7 @@ public class PortalGun : MonoBehaviour
     BasePortalAble redWall;
     BasePortalAble blueWall;
 
-    [SerializeField] CrossHair crossHair;
+    public CrossHair crossHair;
     [SerializeField] AudioClip shootSound;
 
     public Ray ray;
