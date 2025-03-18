@@ -224,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3208291339146111921, guid: 19dbbc0b9ced5bf4d849ce17bbb34621, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.53
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3208291339146111921, guid: 19dbbc0b9ced5bf4d849ce17bbb34621, type: 3}
       propertyPath: m_LocalRotation.w
@@ -346,6 +346,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273606056}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &528544313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7287401063019029808, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
+  m_PrefabInstance: {fileID: 1198566372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &681245426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -646,7 +657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1583414420070019827, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1583414420070019827, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: m_LocalRotation.w
@@ -695,7 +706,7 @@ PrefabInstance:
     - target: {fileID: 8441481252811430340, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: pauseImg
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 528544313}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
