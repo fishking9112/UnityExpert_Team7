@@ -63,9 +63,21 @@ public class Rayser_Main : MonoBehaviour
                     // hit.point 에서 ray를 다시 쏘기
                     hit.collider.GetComponent<Cube_Rayser>().ChkRayserLayser();
                 }
+                else if (layserIndex == LayerMask.NameToLayer("LayserBtn"))
+                {
+                    currentHitObj = hit.collider.gameObject;
+                    hit.collider.GetComponent<Button>().ChkedPress();
+                }
             }
 
-
+            if (lastHitObj != null && lastHitObj != currentHitObj)
+            {
+                Button lastbtnRayser = lastHitObj.GetComponent<Button>();
+                if (lastbtnRayser != null)
+                {
+                    lastbtnRayser.ChkOutPress();
+                }
+            }
 
 
         }

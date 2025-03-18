@@ -45,7 +45,6 @@ public class Cube_Rayser : MonoBehaviour
                     hit.collider.GetComponent<Rayser_Portal>().SetPortalPosition(hit.point);
                     hit.collider.GetComponent<Rayser_Portal>().SetPotalDirection(transform.position);
                     currentHitObj = hit.collider.gameObject;
-
                 }
             }
 
