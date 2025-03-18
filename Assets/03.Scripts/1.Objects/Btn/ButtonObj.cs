@@ -22,7 +22,7 @@ public class ButtonObj : MonoBehaviour, IPressable
     }
 
 
-    public void Press(Interaction player)
+    public virtual void Press(Interaction player)
     {
         // press된 상태인지 구분 
         isPressed = !isPressed; //<< 잠시 대기 사용할지 안할지 모르겟음 
