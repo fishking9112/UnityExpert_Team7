@@ -48,7 +48,11 @@ public class PortalGun : MonoBehaviour
 
         canShotPortal = false;
 
-        //crossHair = UIManager.instance.crosshair;
+    }
+    private void Start()
+    {
+        //Find 하나만 할게요
+        crossHair = GameObject.Find("GameMenuCanvas").GetComponent<GameMenuController>().crossHair;
     }
     private void Update()
     {
