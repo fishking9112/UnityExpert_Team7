@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rayser_Main : MonoBehaviour
 {
-    public GameObject Raybody; //레이저 쏘는 몸통
+    //public GameObject Raybody; //레이저 쏘는 몸통
     public GameObject ScaleDistance; //거리에 따른 스케일 변화를 위한 오브젝트 대상
-    public GameObject RayResult; // 충돌하느 위치에 촐력할 결과 임펙트
+    //public GameObject RayResult; // 충돌하느 위치에 촐력할 결과 임펙트
     
     private float maxDistance;
     private GameObject lastHitObj = null;
@@ -14,7 +12,7 @@ public class Rayser_Main : MonoBehaviour
     void Start()
     {
         maxDistance = 200f;
-        
+        ScaleDistance.SetActive(true);
     }
 
 
@@ -35,8 +33,8 @@ public class Rayser_Main : MonoBehaviour
             //레이저를 중간위치에 설정(우리의 sprite는 한쪽방향이 아닌 양쪽으로 증가하기 때문)
             ScaleDistance.transform.position = middlePosition;
             //거리에 따른 레이저 스케일변화 
-            ScaleDistance.transform.localScale = new Vector3(0.1f, hit.distance, 0.1f);
-
+            //ScaleDistance.transform.localScale = new Vector3(0.1f, hit.distance, 0.1f);
+            ScaleDistance.transform.localScale = new Vector3(0.1f, 0.1f, (hit.distance));
             // 레이저가 히트 지점을 향하도록 회전
             //ScaleDistance.transform.LookAt(hit.point);
             //ScaleDistance.transform.localEulerAngles +=new Vector3(-90f, 0f, 0f);
