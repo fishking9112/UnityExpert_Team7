@@ -4192,7 +4192,7 @@ MonoBehaviour:
   masterVolumSlider: {fileID: 4398206809249691848}
   bgmVolumSlider: {fileID: 2401262594381605566}
   sfxVolumSlider: {fileID: 4251738902176655569}
-  soundMenu: {fileID: 0}
+  soundMenu: {fileID: 6860627260610204855}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

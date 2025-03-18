@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StageEndButton : MonoBehaviour,
+public class StageEndButton : MonoBehaviour
 {
     private bool isPressed = false;
     public bool IsPressed => isPressed;
