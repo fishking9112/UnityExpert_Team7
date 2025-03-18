@@ -19,7 +19,7 @@ public class Rayser_Portal : MonoBehaviour
     private void Start()
     {
         portal = GetComponent<Portal>();
-        ScaleDistance.SetActive(true);
+        //ScaleDistance.SetActive(true);
 
     }
     private void Update()
