@@ -26,6 +26,7 @@ public class Rayser_Portal : MonoBehaviour
     }
     private void Update()
     {
+        GameObject currentHitObj = null;
         newPortalPosition = portal.LaserPosition(portalPosition);
         newPortalDirection = portal.LaserDirection(portalPosition, portalDirection);
 
@@ -34,16 +35,22 @@ public class Rayser_Portal : MonoBehaviour
             //ScaleDistance.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
             //포탈위치에 레이저 쏴주기 
             RaycastHit hit;
-            GameObject currentHitObj = null;
 
             ScaleDistance.SetActive(true);
             if (Physics.Raycast(newPortalPosition, newPortalDirection, out hit, maxDistance))
             {
+                int index_layer = hit.collider.gameObject.layer;
                 Debug.DrawRay(newPortalPosition, transform.forward * hit.distance, Color.yellow);
 
                 Vector3 middlePosition = newPortalPosition + (hit.point - newPortalPosition) / 2;
                 ScaleDistance.transform.position = middlePosition;
                 ScaleDistance.transform.localScale = new Vector3(0.1f, hit.distance, 0.1f);
+
+                if (index_layer == LayerMask.NameToLayer("LayserCube"))
+                {
+                    currentHitObj = hit.collider.gameObject;
+                    hit.collider.GetComponent<Cube_Rayser>().ChkRayserLayser();
+                }
             }
             else
             {
@@ -59,6 +66,17 @@ public class Rayser_Portal : MonoBehaviour
         {
             ScaleDistance.SetActive(false);
         }
+
+        if (lastHitObj !=null && lastHitObj != currentHitObj)
+        {
+            Cube_Rayser cube_Rayser = lastHitObj.GetComponent<Cube_Rayser>();
+            if (cube_Rayser != null)
+            {
+                cube_Rayser.ChkOutRayserLayser();
+            }
+        }
+
+        lastHitObj=currentHitObj;
 
     }
 
