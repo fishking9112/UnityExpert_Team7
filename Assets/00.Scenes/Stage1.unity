@@ -957,9 +957,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2636002002629159523, guid: ced61e629bdadea4b9d5e03b23958c19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.75
+      objectReference: {fileID: 0}
     - target: {fileID: 3179323717126989572, guid: ced61e629bdadea4b9d5e03b23958c19, type: 3}
       propertyPath: m_Name
       value: Map_testGW5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898375375332610826, guid: ced61e629bdadea4b9d5e03b23958c19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
