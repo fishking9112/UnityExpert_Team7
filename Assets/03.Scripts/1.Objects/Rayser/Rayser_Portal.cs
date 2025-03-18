@@ -20,24 +20,24 @@ public class Rayser_Portal : MonoBehaviour
     private Vector3 newPortalDirection = Vector3.zero;
     private void Start()
     {
-        portal= GetComponent<Portal>();
-        
-        
+        portal = GetComponent<Portal>();
+
+
     }
     private void Update()
     {
-        
-        if (portalPosition != Vector3.zero)
+        newPortalPosition = portal.LaserPosition(portalPosition);
+        newPortalDirection = portal.LaserDirection(portalPosition, portalDirection);
+
+        if (portalPosition != Vector3.zero && newPortalPosition != Vector3.zero)
         {
-            ScaleDistance.SetActive(true);
             //ScaleDistance.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
-            newPortalPosition = portal.LaserPosition(portalPosition);
-            newPortalDirection = portal.LaserDirection(portalPosition, portalDirection);
             //포탈위치에 레이저 쏴주기 
             RaycastHit hit;
             GameObject currentHitObj = null;
 
-            if (Physics.Raycast(newPortalPosition, newPortalDirection, out hit,maxDistance))
+            ScaleDistance.SetActive(true);
+            if (Physics.Raycast(newPortalPosition, newPortalDirection, out hit, maxDistance))
             {
                 Debug.DrawRay(newPortalPosition, transform.forward * hit.distance, Color.yellow);
 
@@ -59,7 +59,7 @@ public class Rayser_Portal : MonoBehaviour
         {
             ScaleDistance.SetActive(false);
         }
-        
+
     }
 
     public void SetPortalPosition(Vector3 _position)
@@ -68,7 +68,7 @@ public class Rayser_Portal : MonoBehaviour
     }
     public void SetPotalDirection(Vector3 _Direction)
     {
-        portalDirection=_Direction;
+        portalDirection = _Direction;
     }
     public void SetPotalDirectioninit()
     {
