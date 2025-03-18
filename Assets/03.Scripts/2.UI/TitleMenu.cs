@@ -52,6 +52,7 @@ public class TitleMenu : MonoBehaviour
             SceneManager.LoadScene($"Satge{GameManager.Instance.lastStage}");
         }
     }
+
     public void onClickEndBtn()
     {
 
