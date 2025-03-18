@@ -12,7 +12,7 @@ public class TitleMenu : MonoBehaviour
     [SerializeField] Button continueBtn;
     [SerializeField] Button endBtn;
     [SerializeField] Button settingBtn;
-    [SerializeField] Button closeSetting;
+    //[SerializeField] Button closeSetting;
 
     [SerializeField] Slider masterVolumSlider;
     [SerializeField] Slider bgmVolumSlider;
@@ -33,7 +33,7 @@ public class TitleMenu : MonoBehaviour
         startBtn.onClick.AddListener(onClickStart);
         continueBtn.onClick.AddListener(onClickContinue);
         settingBtn.onClick.AddListener(OnClickSettingBtn);
-        closeSetting.onClick.AddListener(OnClickCloseSetting);
+        //closeSetting.onClick.AddListener(OnClickCloseSetting);
     }
     void IsAbleContinuBtn(bool value)
     {
@@ -61,8 +61,8 @@ public class TitleMenu : MonoBehaviour
     {
         soundMenu.SetActive(true);
     }
-    public void OnClickCloseSetting()
-    {
-        soundMenu.SetActive(false);
-    }
+    //public void OnClickCloseSetting()
+    //{
+    //    soundMenu.SetActive(false);
+    //}
 }
