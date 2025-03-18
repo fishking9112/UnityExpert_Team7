@@ -39,6 +39,7 @@ public class TitleMenu : MonoBehaviour
     {
         ColorBlock colors = continueBtn.colors;
         colors.normalColor = value? Color.white : Color.black;
+        continueBtn.colors = colors;
         canContinue = value;
     }
     public void onClickStart()
@@ -49,7 +50,7 @@ public class TitleMenu : MonoBehaviour
     {
         if (canContinue)
         {
-            SceneManager.LoadScene($"Satge{GameManager.Instance.lastStage}");
+            SceneManager.LoadScene($"Stage{GameManager.Instance.lastStage}");
         }
     }
 

@@ -26,14 +26,20 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        UpdateLastStage();
+    }
+    public void UpdateLastStage()
+    {
         lastStage = PlayerPrefs.GetInt("lastStage");
     }
-
     public void StageClear()
     {
         curStage += 1;
         PlayerPrefs.SetInt("lastStage", curStage);
         PlayerPrefs.Save();
+
+        Debug.Log(PlayerPrefs.GetInt("lastStage"));
+
         SceneManager.LoadScene($"Stage{curStage}");
     }
 
@@ -42,6 +48,9 @@ public class GameManager : MonoBehaviour
         curStage = 1;
         PlayerPrefs.SetInt("lastStage", curStage);
         PlayerPrefs.Save();
+
+        Debug.Log(PlayerPrefs.GetInt("lastStage"));
+
         SceneManager.LoadScene($"Stage{curStage}");
     }
 }

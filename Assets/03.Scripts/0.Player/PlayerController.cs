@@ -29,9 +29,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool _isGround;
 
     [SerializeField] float standSpeed;
+
+    PortalGun portalGun;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        portalGun = GetComponentInChildren<PortalGun>();
     }
     private void Start()
     {
@@ -127,7 +130,9 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = _isPause ? 1f : 0f;
             pauseImg.gameObject.SetActive(!_isPause);
             Cursor.lockState = _isPause ? CursorLockMode.Locked : CursorLockMode.None;
+            portalGun.SetPause(!_isPause);
             _isPause = !_isPause;
+            
         }
 
     }
