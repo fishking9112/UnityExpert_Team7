@@ -995,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7667863251986408538, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: GameMenuCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1276,10 +1276,6 @@ PrefabInstance:
     - target: {fileID: 6491829086537615366, guid: 335bc0bcf54f8714c87d716f63e94c22, type: 3}
       propertyPath: m_Name
       value: Rayser
-      objectReference: {fileID: 0}
-    - target: {fileID: 6491829086537615366, guid: 335bc0bcf54f8714c87d716f63e94c22, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
