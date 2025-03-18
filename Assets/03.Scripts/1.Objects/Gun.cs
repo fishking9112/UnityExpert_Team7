@@ -51,6 +51,9 @@ public class Gun : MonoBehaviour, IPickable
         
         player.SetHeldObject(this);
         Debug.Log("PortalGun 장착됨!");
+
+        this.gameObject.layer = 7;
+        this.gameObject.transform.GetChild(0).gameObject.layer = 7;
     }
 
     public void Drop(Interaction player)
