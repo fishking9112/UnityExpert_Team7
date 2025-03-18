@@ -975,21 +975,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 604368568565610852, guid: 30792a3caa16e73498105a446dae952d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3912238491127542523, guid: 30792a3caa16e73498105a446dae952d, type: 3}
       propertyPath: m_Name
       value: Map_testGW66
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995361994984271537, guid: 30792a3caa16e73498105a446dae952d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6541075250638592456, guid: 30792a3caa16e73498105a446dae952d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
