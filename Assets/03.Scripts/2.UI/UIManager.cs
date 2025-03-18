@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     private static UIManager _instance;
+    public Image fadeoutImg;
     public static UIManager Instance
     {
         get
