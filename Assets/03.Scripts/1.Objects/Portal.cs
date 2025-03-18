@@ -249,8 +249,13 @@ public class Portal : MonoBehaviour
         Vector3 localHitPoint = transform.InverseTransformPoint(hitPoint);
 
         Vector3 newStartPosition = otherPotal.transform.TransformPoint(localHitPoint) + (otherPotal.transform.forward * 0.01f);
+        newStartPosition = new Vector3(-newStartPosition.x,newStartPosition.y,newStartPosition.z);
 
         return newStartPosition;
+    }
+    public Vector3 LaserNormalPosition(Vector3 hitPoint)
+    {
+        return transform.position + transform.forward * 0.1f;
     }
     public Vector3 LaserDirection(Vector3 hitPoint,Vector3 startPosition)
     {
@@ -261,6 +266,10 @@ public class Portal : MonoBehaviour
         laserDirection = otherPotal.transform.TransformDirection(laserDirection);
 
         return laserDirection;
+    }
+    public Vector3 LaserNormalDirection(Vector3 hitPoint, Vector3 startPosition)
+    {
+        return transform.forward;
     }
 
 
