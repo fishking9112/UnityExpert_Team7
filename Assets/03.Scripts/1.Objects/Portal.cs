@@ -23,6 +23,7 @@ public class Portal : MonoBehaviour
     [SerializeField] Collider collider1;
     [SerializeField] Collider collider2;
 
+    [SerializeField] float aditionalPortalExitSpeed;
     private void Update()
     {
         SetCameraPositon();
@@ -161,6 +162,7 @@ public class Portal : MonoBehaviour
         velocity = transform.InverseTransformDirection(velocity);
         velocity = new Vector3(-velocity.x, velocity.y, -velocity.z);
         velocity = otherPotal.transform.TransformDirection(velocity);
+        velocity += (otherPotal.transform.forward * aditionalPortalExitSpeed);
         rb.velocity = velocity;
 
         other.transform.SetParent(null);
@@ -216,31 +218,31 @@ public class Portal : MonoBehaviour
     //    other.transform.SetParent (null);
     //}
 
-    void Telefort(Collider other)
-    {
-        if (plane.GetDistanceToPoint(other.transform.position) >= 0)
-            return;
+    //void Telefort(Collider other)
+    //{
+    //    if (plane.GetDistanceToPoint(other.transform.position) >= 0)
+    //        return;
 
-        other.transform.SetParent(transform);
-        other.transform.SetParent(otherPotal.transform, false);
-        Vector3 localPos = other.transform.localPosition;
-        other.transform.localPosition = new Vector3(-localPos.x, localPos.y, -localPos.z);
-
-
-        Vector3 localEuler = other.transform.localRotation.eulerAngles;
-        localEuler.y = localEuler.y + 180f;
-        other.transform.localRotation = Quaternion.Euler(localEuler);
+    //    other.transform.SetParent(transform);
+    //    other.transform.SetParent(otherPotal.transform, false);
+    //    Vector3 localPos = other.transform.localPosition;
+    //    other.transform.localPosition = new Vector3(-localPos.x, localPos.y, -localPos.z);
 
 
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        Vector3 velocity = rb.velocity;
-        velocity = transform.InverseTransformDirection(velocity);
-        velocity = new Vector3(-velocity.x, velocity.y, -velocity.z);
-        velocity = otherPotal.transform.TransformDirection(velocity);
-        rb.velocity = velocity;
+    //    Vector3 localEuler = other.transform.localRotation.eulerAngles;
+    //    localEuler.y = localEuler.y + 180f;
+    //    other.transform.localRotation = Quaternion.Euler(localEuler);
 
-        other.transform.SetParent(null);
-    }
+
+    //    Rigidbody rb = other.GetComponent<Rigidbody>();
+    //    Vector3 velocity = rb.velocity;
+    //    velocity = transform.InverseTransformDirection(velocity);
+    //    velocity = new Vector3(-velocity.x, velocity.y, -velocity.z);
+    //    velocity = otherPotal.transform.TransformDirection(velocity);
+    //    rb.velocity = velocity;
+
+    //    other.transform.SetParent(null);
+    //}
 
     public Vector3 LaserPosition(Vector3 hitPoint)
     {
