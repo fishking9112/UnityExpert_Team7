@@ -252,8 +252,8 @@ public class Portal : MonoBehaviour
         {
             return Vector3.zero;
         }
+        localHitPoint = new Vector3(-localHitPoint.x,localHitPoint.y,localHitPoint.z);
         Vector3 newStartPosition = otherPotal.transform.TransformPoint(localHitPoint) + (otherPotal.transform.forward * 0.01f);
-        newStartPosition = new Vector3(-newStartPosition.x,newStartPosition.y,newStartPosition.z);
 
         return newStartPosition;
 
