@@ -11,6 +11,8 @@ public class Cube_Rayser : MonoBehaviour
     private float maxDistance = 200f;
     private GameObject lastHitObj = null;
     private GameObject currentHitObj = null;
+
+
     private void Update()
     {
         if (ChkRayser)

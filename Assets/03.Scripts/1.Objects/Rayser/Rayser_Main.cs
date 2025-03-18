@@ -12,7 +12,7 @@ public class Rayser_Main : MonoBehaviour
     void Start()
     {
         maxDistance = 200f;
-        
+        ScaleDistance.SetActive(true);
     }
 
 
@@ -33,8 +33,8 @@ public class Rayser_Main : MonoBehaviour
             //레이저를 중간위치에 설정(우리의 sprite는 한쪽방향이 아닌 양쪽으로 증가하기 때문)
             ScaleDistance.transform.position = middlePosition;
             //거리에 따른 레이저 스케일변화 
-            ScaleDistance.transform.localScale = new Vector3(0.1f, hit.distance, 0.1f);
-
+            //ScaleDistance.transform.localScale = new Vector3(0.1f, hit.distance, 0.1f);
+            ScaleDistance.transform.localScale = new Vector3(0.1f, 0.1f, (hit.distance));
             // 레이저가 히트 지점을 향하도록 회전
             //ScaleDistance.transform.LookAt(hit.point);
             //ScaleDistance.transform.localEulerAngles +=new Vector3(-90f, 0f, 0f);
