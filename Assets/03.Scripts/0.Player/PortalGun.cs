@@ -18,6 +18,7 @@ public class PortalGun : MonoBehaviour
     BasePortalAble blueWall;
 
     [SerializeField] CrossHair crossHair;
+    [SerializeField] AudioClip shootSound;
 
     public Ray ray;
     Gun gunScript;
@@ -86,7 +87,12 @@ public class PortalGun : MonoBehaviour
             return;
         if(context.performed)
         {
+            if (shootSound != null)
+            {
+                SoundManager.instance.PlaySFX(shootSound);
+            }
             gunScript.ShootAnimation(true);
+
             if (canShotRedPortal)
             {
                 redWall?.SetMainCollider(true);
@@ -123,6 +129,11 @@ public class PortalGun : MonoBehaviour
 
         if (context.performed)
         {
+            if(shootSound != null)
+            {
+                SoundManager.instance.PlaySFX(shootSound);
+            }
+                
             gunScript.ShootAnimation(false);
 
             if (canShotBluePortal)

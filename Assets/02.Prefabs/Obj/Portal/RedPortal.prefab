@@ -331,6 +331,7 @@ MonoBehaviour:
   animator: {fileID: 3544508996853799010}
   collider1: {fileID: 4212705239880187734}
   collider2: {fileID: 6694285770646091248}
+  aditionalPortalExitSpeed: 2
 --- !u!65 &4212705239880187734
 BoxCollider:
   m_ObjectHideFlags: 0
