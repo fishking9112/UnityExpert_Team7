@@ -7,18 +7,18 @@ public class Cube_Rayser : MonoBehaviour
     public GameObject Raybody;
     public GameObject ScaleDistance;
     public GameObject RayResult;
-    
+
 
     private bool ChkRayser = false;
     private float maxDistance = 200f;
     private GameObject lastHitObj = null;
+    private GameObject currentHitObj = null;
     private void Update()
     {
         if (ChkRayser)
         {
             //여기서  z축 방향으로 layser 쏘기
             RaycastHit hit;
-            GameObject currentHitObj = null;
 
             ScaleDistance.SetActive(true);
 
@@ -56,11 +56,20 @@ public class Cube_Rayser : MonoBehaviour
         else
         {
             Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.yellow);
-            
+
             ScaleDistance.SetActive(false);
+            //여기부분에서 문제가 생기는거네 ? 검사를안하니까 ? 
+            if (lastHitObj != null)
+            {
+                Button lastbtnRayser = lastHitObj.GetComponent<Button>();
+                if (lastbtnRayser != null)
+                {
+                    lastbtnRayser.ChkOutPress();
+                }
+            }
         }
 
-
+       
     }
 
     public void ChkRayserLayser() => ChkRayser = true;
