@@ -308,3 +308,4 @@ MonoBehaviour:
   masterSlider: {fileID: 0}
   bgmSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
+  soundMenuController: {fileID: 0}

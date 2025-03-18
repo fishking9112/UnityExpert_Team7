@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rayser_Portal : MonoBehaviour
@@ -8,7 +6,7 @@ public class Rayser_Portal : MonoBehaviour
     public GameObject ScaleDistance;
     //public GameObject RayResult;
 
-    private bool ChkRayser = false;
+    
     private float maxDistance = 200f;
     private GameObject lastHitObj = null;
     private Portal portal;
@@ -21,7 +19,7 @@ public class Rayser_Portal : MonoBehaviour
     private void Start()
     {
         portal = GetComponent<Portal>();
-
+        ScaleDistance.SetActive(true);
 
     }
     private void Update()
@@ -37,7 +35,6 @@ public class Rayser_Portal : MonoBehaviour
 
             ScaleDistance.SetActive(true);
             if (Physics.Raycast(newPortalPosition, newPortalDirection, out hit, maxDistance))
-            //if (Physics.Raycast(newPortalPosition, transform.forward, out hit, maxDistance))
             {
                 int index_layer = hit.collider.gameObject.layer;
                 //Debug.DrawRay(newPortalPosition, newPortalDirection * hit.distance, Color.yellow);
@@ -77,7 +74,6 @@ public class Rayser_Portal : MonoBehaviour
                 //Debug.DrawRay(newPortalPosition, newPortalDirection * maxDistance, Color.yellow);
 
                 Vector3 endPoint = newPortalPosition + newPortalDirection * maxDistance;
-                //Vector3 endPoint = newPortalPosition +  maxDistance;
                 Vector3 midPotnt = (newPortalPosition + endPoint) / 2;
                 ScaleDistance.transform.position = midPotnt;
                 //ScaleDistance.transform.localScale = new Vector3(0.1f,  maxDistance, 0.1f);
