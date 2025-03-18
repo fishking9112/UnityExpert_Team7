@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 602745697765020763}
   - component: {fileID: 1446419631472145840}
   - component: {fileID: 3161998479011952143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 1202367846654592043}
   - component: {fileID: 3959426705356010302}
   - component: {fileID: 2588337355891606742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2896802672310876597}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall BayDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 4712944636837472066}
   - component: {fileID: 3677305784732294142}
   - component: {fileID: 4152111786534051437}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tunnel Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 5493287764437408337}
   - component: {fileID: 137045174516759562}
   - component: {fileID: 2121435956371538734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Beams
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1523220663997846322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StageEndTunnel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 538253190573661153}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 1638431996265657844}
   - component: {fileID: 3458335756121852318}
   - component: {fileID: 6982936443659105678}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 8877444854229784535}
   - component: {fileID: 139684262333204097}
   - component: {fileID: 6227693582806155684}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Tunnel Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 1687751884034692327}
   - component: {fileID: 618657895546450299}
   - component: {fileID: 8275900458694004814}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tunnel Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 7158197555228557132}
   - component: {fileID: 7426065951735334124}
   - component: {fileID: 32836172043250382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LP_Bay_Door_Wall_snaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 9086405173358453275}
   - component: {fileID: 7398245754520710380}
   - component: {fileID: 6537273768225334061}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tunnel Piipes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 6398938818219652910}
   - component: {fileID: 741461170515063464}
   - component: {fileID: 2843365874122272821}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LP_Bay_Door_snaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 1841165679804924091}
   - component: {fileID: 4287399554660046904}
   - component: {fileID: 1819675464335077050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LP_Bay_Door_Frame_snaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
