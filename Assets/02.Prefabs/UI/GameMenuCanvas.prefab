@@ -1260,6 +1260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8015468855946962715, guid: 2ee9de562756d8140baebc182eb02d50, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8301794267434148137, guid: 2ee9de562756d8140baebc182eb02d50, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1

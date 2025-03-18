@@ -514,6 +514,17 @@ Transform:
   - {fileID: 273606057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1524553596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7287401063019029808, guid: e3249afb0bfc0f44b8c21eb12f3f27a5, type: 3}
+  m_PrefabInstance: {fileID: 226135521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1567061283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -724,7 +735,7 @@ PrefabInstance:
     - target: {fileID: 8441481252811430340, guid: 9530165b6fd1f064bafb4c053779f4ef, type: 3}
       propertyPath: pauseImg
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1524553596}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
