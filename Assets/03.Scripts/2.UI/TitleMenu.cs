@@ -43,9 +43,10 @@ public class TitleMenu : MonoBehaviour
     }
     void IsAbleContinuBtn(bool value)
     {
-        ColorBlock colors = continueBtn.colors;
-        colors.normalColor = value? Color.white : Color.black;
-        continueBtn.colors = colors;
+        continueBtn.interactable = value;
+        //ColorBlock colors = continueBtn.colors;
+        //colors.normalColor = value? Color.white : Color.black;
+        //continueBtn.colors = colors;
         canContinue = value;
     }
     public void onClickStart()
