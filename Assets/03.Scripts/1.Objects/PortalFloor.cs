@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PortalFloor : BasePortalAble
 {
-    public override Vector3 SummonPortal(Vector3 hitPosition)
+    public override Vector3 SummonPortal(Vector3 hitPosition)           //portalWall과 기능 같음
     {
         Vector3 localHitPosition = transform.InverseTransformPoint(hitPosition);
         Vector3 summonPosition = new Vector3( Mathf.Clamp(localHitPosition.x, 0.8f, 5.2f), localHitPosition.y, Mathf.Clamp(localHitPosition.z, 1.5f, 4.5f));

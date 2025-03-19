@@ -15,7 +15,7 @@ public abstract class BasePortalAble : MonoBehaviour
             colliders[i].enabled = false;
         }
     }
-    public virtual void SetMainCollider(bool value)
+    public virtual void SetMainCollider(bool value)     //true면 1개의 벽(메인) 콜라이더만 활성화,  false면 메인끄고 나머지4개의 콜라이더 활성화
     {
         mainCollider.enabled = value;
         for (int i = 0; i < colliders.Length; i++)

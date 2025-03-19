@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         }
         Move();
         
-        _rigidbody.useGravity = (_isJump);
+        _rigidbody.useGravity = (_isJump);      //점프상태가 아니면 중력 끔 ==>> 경사로 미끄러짐 방지
         _isGround = IsGround();
         _isJump = !_isGround;
     }
@@ -95,9 +95,9 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = transform.forward * _curMoveInput.y + transform.right * _curMoveInput.x;
 
 
-        if (_isJump)
+        if (_isJump)                //점프상태일때 방향키로 이동안됨, 0.08만큼 살짝만 조정됨
         {
-            _rigidbody.velocity += new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * 0.08f;
+            _rigidbody.velocity += new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * 0.08f;      
             return;
         }
         moveDirection *= moveSpeed;
@@ -127,10 +127,10 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Time.timeScale = _isPause ? 1f : 0f;
-            pauseImg.gameObject.SetActive(!_isPause);
-            Cursor.lockState = _isPause ? CursorLockMode.Locked : CursorLockMode.None;
-            portalGun.SetPause(!_isPause);
+            Time.timeScale = _isPause ? 1f : 0f;                //일시정시 상태시 시간정지
+            pauseImg.gameObject.SetActive(!_isPause);           //일시정지창 활성화
+            Cursor.lockState = _isPause ? CursorLockMode.Locked : CursorLockMode.None;  //마우스 락 활성/비활성 화
+            portalGun.SetPause(!_isPause);                                  //시간정지되도 시야 돌릴수있기때문에 시야 회전 잠금을 위한 불값조정
             _isPause = !_isPause;
             
         }
