@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+/// <summary>
+/// 타이틀 메뉴 및 씬 전환
+/// </summary>
 public class TitleMenu : MonoBehaviour
 {
 
@@ -34,6 +39,7 @@ public class TitleMenu : MonoBehaviour
         continueBtn.onClick.AddListener(onClickContinue);
         //settingBtn.onClick.AddListener(OnClickSettingBtn);
         //closeSetting.onClick.AddListener(OnClickCloseSetting);
+        endBtn.onClick.AddListener(onClickEndBtn);
     }
     void IsAbleContinuBtn(bool value)
     {
@@ -56,7 +62,9 @@ public class TitleMenu : MonoBehaviour
 
     public void onClickEndBtn()
     {
+        EditorApplication.isPlaying = false; // 유니티 에디터에서 종료
 
+            Application.Quit(); // 빌드된 게임에서 종료
     }
     public void OnClickSettingBtn()
     {

@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 크로스헤어UI
+/// </summary>
 public class CrossHair : MonoBehaviour
 {
     [SerializeField] Image crossHairRed;
