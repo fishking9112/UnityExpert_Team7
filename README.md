@@ -1,6 +1,8 @@
 # UnityExpert_Team7
 Sparta_UnityExpert_Team7
 
+![Image](https://github.com/user-attachments/assets/7ea5c5a5-cbb5-4112-a992-74dcca932eec)
+
 ---------------------------------------------------------------------------------------------
 
 프로젝트 소개
