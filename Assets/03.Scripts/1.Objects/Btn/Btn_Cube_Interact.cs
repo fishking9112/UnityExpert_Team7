@@ -3,6 +3,7 @@ using UnityEngine;
 public class Btn_Cube_Interact : MonoBehaviour
 {
     private ButtonObj button;
+    
 
 
     private void Start()
@@ -12,18 +13,26 @@ public class Btn_Cube_Interact : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-         Check_Press(collision, 1);
+
+
+        Check_Press(collision, 1);
+
 
     }
     private void OnCollisionExit(Collision collision)
     {
-        Check_Press(collision,2);
+
+
+        Check_Press(collision, 2);
+
     }
 
     private void Check_Press(Collision collision, int Pressednum)
     {
-        if (collision.gameObject.CompareTag("Cube") || collision.gameObject.CompareTag("Player"))
+        //if (collision.gameObject.CompareTag("Cube") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Cube"))
         {
+
             if (button != null)
             {
                 if (Pressednum == 1)
@@ -35,7 +44,9 @@ public class Btn_Cube_Interact : MonoBehaviour
                     button.ChkOutPress();
                 }
             }
+
+
         }
-        
+
     }
 }
