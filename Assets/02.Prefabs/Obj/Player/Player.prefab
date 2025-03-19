@@ -270,7 +270,7 @@ MonoBehaviour:
   maxXLook: 85
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 2369
+    m_Bits: 3393
   pauseImg: {fileID: 0}
   _isPause: 0
   _isJump: 0
